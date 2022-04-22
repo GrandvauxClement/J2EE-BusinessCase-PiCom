@@ -1,0 +1,29 @@
+.my-orange-color{
+    color: #FF9F1C;
+}
+
+.my-orange-bg{
+    background-color: #FF9F1C;
+}
+
+.my-blueGreen-color{
+    color: #2EC4B6;
+}
+
+.my-blueGreen-bg{
+    background-color: #2EC4B6;
+}
+
+header{
+    background: linear-gradient(rgba(255, 159, 28, 0.1), rgba(255, 159, 28, 0.1)), url("../image/header.jpg") bottom;
+    height: 300px;
+}
+header .boxPromotion{
+    background-color: rgba(0, 0, 0, 0.51);
+}
+button.my-blueGreen-bg:hover{
+    background-color: rgba(46, 196, 182, 0.7);
+}
+.navbar-nav i{
+    font-size: 30px;
+}
