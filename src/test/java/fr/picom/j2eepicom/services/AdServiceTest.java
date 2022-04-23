@@ -57,7 +57,7 @@ public class AdServiceTest {
 
         User user = userService.findById(2L);
 
-        Ad ad = this.adService.create("monTest.png", "Lorem ipsum Test d ajout ", new Date(),
+        Ad ad = this.adService.create("Anoonce de test","monTest.png", "Lorem ipsum Test d ajout ", new Date(),
                 15, user.getId(),  areaList);
 
 

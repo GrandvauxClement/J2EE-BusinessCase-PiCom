@@ -22,7 +22,7 @@ public class AdDAO extends AbstractGenericDAO<Ad>{
         super(TableName.AD);
     }
 
-    public Ad createAd(String image, String text, Date startDate, int numDaysOfDiffusion, Long userId,
+    public Ad createAd(String title, String image, String text, Date startDate, int numDaysOfDiffusion, Long userId,
                        List<Area> areaList) throws SQLException {
 
         PreparedStatement ps = null;
@@ -30,17 +30,18 @@ public class AdDAO extends AbstractGenericDAO<Ad>{
         Ad ad = null;
 
         try {
-            String query = "INSERT INTO " + tableName + " (image, text, created_at, start_date, num_days_of_diffusion," +
+            String query = "INSERT INTO " + tableName + " (title, image, text, created_at, start_date, num_days_of_diffusion," +
                     "id_user) " +
-                    "VALUES(?, ?, ?, ?, ?, ?)";
+                    "VALUES(?, ?, ?, ?, ?, ?, ?)";
             Date createdAt = new Date();
             ps = this.connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
-            ps.setString(1, image);
-            ps.setString(2, text);
-            ps.setDate(3, DateManagement.convertUtilDateToSQLDate(createdAt));
-            ps.setDate(4, DateManagement.convertUtilDateToSQLDate(startDate));
-            ps.setInt(5, numDaysOfDiffusion);
-            ps.setLong(6, userId);
+            ps.setString(1, title);
+            ps.setString(2, image);
+            ps.setString(3, text);
+            ps.setDate(4, DateManagement.convertUtilDateToSQLDate(createdAt));
+            ps.setDate(5, DateManagement.convertUtilDateToSQLDate(startDate));
+            ps.setInt(6, numDaysOfDiffusion);
+            ps.setLong(7, userId);
             ps.executeUpdate();
 
             rs = ps.getGeneratedKeys();
@@ -77,7 +78,7 @@ public class AdDAO extends AbstractGenericDAO<Ad>{
 
                 UserDAO userDAO = new UserDAO();
                 User user = userDAO.findById(userId);
-                ad = new Ad(idAdCreate, image, text, createdAt, startDate, numDaysOfDiffusion, user, areaList);
+                ad = new Ad(idAdCreate, title, image, text, createdAt, startDate, numDaysOfDiffusion, user, areaList);
             }
         } finally {
             DBConnect.closeAll(ps, rs);

@@ -45,6 +45,7 @@ CREATE TABLE user
 CREATE TABLE ad
 (
     id INT PRIMARY KEY AUTO_INCREMENT,
+    title VARCHAR(250),
     image VARCHAR(250),
     text TEXT,
     created_at DATETIME,
@@ -143,10 +144,10 @@ INSERT INTO stop(name, latitude, longitude, id_area, address_ip) VALUES
   ( 'centre-ville-4', 45.6584528, 43.98478557, 1, '197.23.65.25' ),
   ( 'centre-ville-5', 45.6584528, 43.98478557, 1, '197.25.68.25' );
 
-INSERT INTO ad(image, text, created_at, start_date, num_days_of_diffusion, id_user) VALUES
-   ( 'image.png', 'Lorem ipsum super texte de l annonce 1 qui va servir de description', '2022-04-20', '2022-04-28', 20, 1),
-   ( 'image.jpeg', 'Lorem ipsum super texte de l annonce 2 qui va servir de description', '2022-04-20', '2022-04-30', 30, 2),
- ( 'image.png', 'Lorem ipsum super texte de l annonce 2 qui va servir de description', '2022-04-21', '2022-05-30', 60, 2);
+INSERT INTO ad(title, image, text, created_at, start_date, num_days_of_diffusion, id_user) VALUES
+   ('Annonce pub spot disponible', 'image.png', 'Spot publicitaire disponible, inscrivez vous sur picom.fr ou contacter nous au 0352958457', '2022-04-20', '2022-04-28', 20, 1),
+   ('Ma première annonce', 'image.jpeg', 'Lorem ipsum super texte de l annonce 2 qui va servir de description', '2022-04-20', '2022-04-30', 30, 2),
+   ('Ma deuxième annonce', 'image.png', 'Lorem ipsum super texte de l annonce 2 qui va servir de description', '2022-04-21', '2022-05-30', 60, 2);
 
 INSERT INTO ad_area(id_ad, id_area) VALUES
    (1, 1),

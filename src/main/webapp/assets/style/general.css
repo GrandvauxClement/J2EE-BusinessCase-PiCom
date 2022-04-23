@@ -21,9 +21,34 @@ header{
 header .boxPromotion{
     background-color: rgba(0, 0, 0, 0.51);
 }
+button.my-orange-bg:hover{
+    background-color: rgba(255, 159, 28, 0.70);
+}
 button.my-blueGreen-bg:hover{
     background-color: rgba(46, 196, 182, 0.7);
 }
-.navbar-nav i{
+.icon-navbar{
     font-size: 30px;
+}
+.nav-link:hover{
+    cursor: pointer;
+    color: #FF9F1C!important;
+}
+.ad-list-item i{
+    font-size: 20px;
+}
+.ad-list-action-edit:hover{
+    cursor: pointer;
+    color: #2EC4B6;
+}
+.ad-list-action-pause{
+    font-size: 30px!important;
+}
+.ad-list-action-pause:hover{
+    color: #FF9F1C;
+    cursor: pointer;
+}
+.ad-list-action-delete:hover{
+    color: #EB4242;
+    cursor: pointer;
 }

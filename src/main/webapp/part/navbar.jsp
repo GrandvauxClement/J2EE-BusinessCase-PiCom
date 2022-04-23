@@ -16,22 +16,40 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarNavAltMarkup">
-           <%-- <div class="navbar-nav">
-                <a class="nav-link" href="#">Nouvelle Annonce</a>
-                <a class="nav-link" href="#">Mes annonces</a>
-                <a class="nav-link" href="#">Compte</a>
-                <a class="nav-link" href="">Déconnexion</a>
-            </div>--%>
-               <div class="navbar-nav">
+            <%--            Navbar pour User Connecté--%>
+            <div class="navbar-nav">
+                <a class="nav-link" href="<c:url value="/register"/>">
+                    <button class="btn my-orange-bg text-white">
+                        <i class="bi bi-plus-square"></i>
+                        Nouvelle annonce
+                    </button>
+                </a>
+                <a class="nav-link d-flex flex-column align-items-center" href="<c:url value="/register"/>">
+                    <i class="bi bi-folder icon-navbar"></i>
+                    Mes annonces
+                </a>
+                <a class="nav-link d-flex flex-column align-items-center" href="<c:url value="/register"/>">
+                    <i class="bi bi-person-lines-fill icon-navbar"></i>
+                    Compte
+                </a>
+                <a class="nav-link d-flex flex-column align-items-center" href="<c:url value="/register"/>">
+                    <i class="bi bi-box-arrow-right icon-navbar"></i>
+                   Deconnexion
+                </a>
+            </div>
+
+<%--            Navbar pour User Non Connecté--%>
+
+              <%-- <div class="navbar-nav">
                    <a class="nav-link d-flex flex-column align-items-center" href="<c:url value="/register"/>">
-                       <i class="bi bi-box-arrow-in-right"></i>
+                       <i class="bi bi-box-arrow-in-right icon-navbar"></i>
                        Connectez-vous !
                    </a>
                    <a class="nav-link d-flex flex-column align-items-center" href="<c:url value="/register"/>">
-                       <i class="bi bi-person-plus-fill"></i>
+                       <i class="bi bi-person-plus-fill icon-navbar"></i>
                        Inscrivez-vous !
                    </a>
-               </div>
+               </div>--%>
         </div>
     </div>
 </nav>

@@ -18,8 +18,8 @@
         <h1 class="my-orange-color text-center my-2">${title}</h1>
         <div class="row justify-content-between my-2">
             <div class="col d-flex">
-                <button class="btn my-orange-bg">Annonces actives (5)</button>
-                <button class="btn btn-secondary">Annonces Expirées (0)</button>
+                <button class="btn my-orange-bg text-white">Annonces actives (5)</button>
+                <button class="btn btn-secondary ms-2">Annonces Expirées (0)</button>
             </div>
             <div class="col">
                 <div class="form-floating">
@@ -33,18 +33,50 @@
                 </div>
             </div>
         </div>
+
         <div class="row">
-            <c:forEach items="${adList}" var="ad">
-                <div class="card" style="width: 18rem;">
-                    <img src="https://www.ecologie.gouv.fr/sites/default/files/styles/standard/public/Stop%20pub%20seul.jpg?itok=yb4cwbtT" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Annonce n° <c:out value="${ad.id}"/></h5>
-                        <p class="card-text"><c:out value="${ad.text}"/></p>
-                        <a href="#" class="btn btn-primary">Voir le détail</a>
+            <div class="col-md-8 col-12">
+                <c:forEach items="${adList}" var="ad">
+                    <div class="row my-3 ad-list-item">
+                        <div class="col-5">
+                            <img src="https://www.ecologie.gouv.fr/sites/default/files/styles/standard/public/Stop%20pub%20seul.jpg?itok=yb4cwbtT" class="card-img-top" alt="...">
+                        </div>
+                        <div class="col-7 d-flex flex-column justify-content-between">
+                            <h5 > <c:out value="${ad.title}"/></h5>
+                            <div class="d-flex align-items-center my-1">
+                                <i class="bi bi-calendar-fill my-orange-color"></i>
+                                <div class="ms-2">  ${ad.startDate}</div>
+                            </div>
+                            <div class="d-flex align-items-center my-1">
+                                <i class="bi bi-calendar-x-fill text-danger"></i>
+                                <div class="ms-2">  ${ad.startDate}</div>
+                            </div>
+                            <div class="row justify-content-between">
+                                <div class="col-2">
+                                    <div class="d-flex align-items-center my-1">
+                                        <i class="bi bi-geo-alt-fill my-orange-color"></i>
+                                        <div class="ms-2"> 3</div>
+                                    </div>
+
+                                </div>
+                                <div class="col-3">
+                                    <div class="d-flex align-items-center">
+                                        <i class="bi bi-pencil-fill me-2 ad-list-action-edit"></i>
+                                        <i class="bi bi-pause-fill me-2 ad-list-action-pause"></i>
+                                        <i class="bi bi-trash-fill me-2 ad-list-action-delete"></i>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
                     </div>
-                </div>
-            </c:forEach>
+                    <hr/>
+                </c:forEach>
+            </div>
         </div>
+
+
     </div>
     <jsp:include page="/part/displayAlertMessage.jsp"/>
     <jsp:include page="/allScript.jsp" />

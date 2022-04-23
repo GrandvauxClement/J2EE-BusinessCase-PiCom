@@ -99,6 +99,7 @@ public class ResultSetConverter {
 
     public static Ad convertToAd(ResultSet resultSet) throws SQLException{
         Long id = resultSet.getLong("id");
+        String title = resultSet.getString("title");
         String image = resultSet.getString("image");
         String text = resultSet.getString("text");
         Date createdAt = resultSet.getDate("created_at");
@@ -111,7 +112,7 @@ public class ResultSetConverter {
         AreaDAO areaDAO = new AreaDAO();
         List<Area> areaList = areaDAO.findAreaAndTimeIntervalByIdAd(id);
 
-        return new Ad(id, image, text, createdAt, startDate, numDaysOfDiffusion, user, areaList);
+        return new Ad(id, title, image, text, createdAt, startDate, numDaysOfDiffusion, user, areaList);
     }
 
     public static Role convertToRole(ResultSet resultSet) throws SQLException {

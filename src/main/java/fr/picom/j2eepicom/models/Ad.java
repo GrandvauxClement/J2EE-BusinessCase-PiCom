@@ -10,6 +10,8 @@ public class Ad extends AbstractEntity{
 
     private Long id;
 
+    private String title;
+
     private String image;
 
     private String text;
@@ -24,10 +26,11 @@ public class Ad extends AbstractEntity{
 
     private List<Area> areaList;
 
-    public Ad(Long id, String image, String text, Date createdAt, Date startDate, Integer numDaysOfDiffusion, User user,
+    public Ad(Long id, String title, String image, String text, Date createdAt, Date startDate, Integer numDaysOfDiffusion, User user,
               List<Area> areaList) {
         super(TableName.AD);
         this.id = id;
+        this.title = title;
         this.image = image;
         this.text = text;
         this.createdAt = createdAt;
@@ -43,6 +46,14 @@ public class Ad extends AbstractEntity{
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public String getImage() {

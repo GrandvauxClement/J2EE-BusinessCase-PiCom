@@ -16,10 +16,10 @@ public class AdService {
         this.adDAO = new AdDAO();
     }
 
-    public Ad create(String image, String text, Date startDate, int numDaysOfDiffusion, Long userId,
+    public Ad create(String title,String image, String text, Date startDate, int numDaysOfDiffusion, Long userId,
                      List<Area> areaList) {
         try {
-           return this.adDAO.createAd(image,text, startDate, numDaysOfDiffusion, userId, areaList);
+           return this.adDAO.createAd(title, image,text, startDate, numDaysOfDiffusion, userId, areaList);
         } catch (SQLException e){
             e.printStackTrace();
             return null;
