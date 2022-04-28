@@ -27,7 +27,7 @@ public class AdServiceTest {
         this.areaDAO = new AreaDAO();
         this.userService.register("Grandvaux", "Clément", "clement.grandvaux@hotmail.com",
                 "Admin123", "6 29 16 89 43","25487563256632", "Tesla",
-                "14 boulevard Gambetta", "39000", "Lons-le-saunier", "France", "+33");
+                "14 boulevard Gambetta", "39000", "Lons-le-saunier", "France");
     }
 
     @AfterEach

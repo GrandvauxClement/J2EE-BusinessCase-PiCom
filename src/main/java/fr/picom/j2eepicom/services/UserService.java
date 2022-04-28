@@ -38,8 +38,7 @@ public class UserService {
     }
 
     public User register(String lastName, String firstName, String email, String password, String phoneNumber, String numSiret,
-                       String companyName, String roadName, String postalCode, String cityName, String countryName,
-                         String phoneIndicative) throws DbUniqueFieldThisValueExist {
+                       String companyName, String roadName, String postalCode, String cityName, String countryName) throws DbUniqueFieldThisValueExist {
         try {
             //Check if email already use
             if (userDAO.checkIfFieldExist("email", email)){
@@ -52,7 +51,7 @@ public class UserService {
             //Check if country exist in db and create if he doesn't
             Country checkCountryExist = countryDAO.findByName(countryName);
             if (checkCountryExist == null){
-                checkCountryExist = countryDAO.create(countryName, phoneIndicative);
+                checkCountryExist = countryDAO.create(countryName, "+52");
             }
             //Check if city exist in db and create if he doesn't
             City checkCityExist = cityDAO.findByName(cityName);

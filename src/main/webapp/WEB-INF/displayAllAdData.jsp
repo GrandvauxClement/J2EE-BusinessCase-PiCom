@@ -15,13 +15,13 @@
 <body>
     <jsp:include page="/part/navbar.jsp" />
     <div class="container">
-        <h1 class="my-orange-color text-center my-2">${title}</h1>
+        <h2 class="my-orange-color text-center my-2">${title}</h2>
         <div class="row justify-content-between my-2">
-            <div class="col d-flex">
+            <div class="col-12 col-md-5 d-flex justify-content-center mb-2 mb-md-0">
                 <button class="btn my-orange-bg text-white">Annonces actives (5)</button>
                 <button class="btn btn-secondary ms-2">Annonces Expirées (0)</button>
             </div>
-            <div class="col">
+            <div class="col-12 col-md-4">
                 <div class="form-floating">
                     <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
                         <option value="1">Date de Début croissant</option>
@@ -38,11 +38,11 @@
             <div class="col-md-8 col-12">
                 <c:forEach items="${adList}" var="ad">
                     <div class="row my-3 ad-list-item">
-                        <div class="col-5">
+                        <div class="col-md-5 col-12">
                             <img src="https://www.ecologie.gouv.fr/sites/default/files/styles/standard/public/Stop%20pub%20seul.jpg?itok=yb4cwbtT" class="card-img-top" alt="...">
                         </div>
-                        <div class="col-7 d-flex flex-column justify-content-between">
-                            <h5 > <c:out value="${ad.title}"/></h5>
+                        <div class="col-md-7 col-12 d-flex flex-column justify-content-between">
+                            <h5 class="text-center"> <c:out value="${ad.title}"/></h5>
                             <div class="d-flex align-items-center my-1">
                                 <i class="bi bi-calendar-fill my-orange-color"></i>
                                 <div class="ms-2">  ${ad.startDate}</div>
@@ -78,6 +78,7 @@
 
 
     </div>
+    <jsp:include page="/part/footer.jsp" />
     <jsp:include page="/part/displayAlertMessage.jsp"/>
     <jsp:include page="/allScript.jsp" />
 </body>

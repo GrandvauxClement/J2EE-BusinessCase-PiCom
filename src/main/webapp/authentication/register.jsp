@@ -15,7 +15,7 @@
     <body>
         <jsp:include page="/part/navbar.jsp"/>
         <div class="container">
-            <h1>Bienvenue sur l'application Picom, n'hésitez plus et inscrivez vous !</h1>
+            <h2 class="my-orange-color">Bienvenue sur l'application Picom, n'hésitez plus et inscrivez vous !</h2>
             <p>
                 Lorem ipsum trekt jfjkfr potloie kitre fruits zikerto Lorem ipsum trekt, jfjkfr potloie kitre fruits zikerto
                 Lorem ipsum trekt jfjkfr potloie kitre fruits zikerto.
@@ -92,14 +92,15 @@
                         <div class="form-floating">
                             <input type="text" class="form-control" id="floatingInputAddress" name="address" required
                                    placeholder="10 rue de la pub 64000 Clermont" value="<c:out value="${address}"/>">
-                            <label for="floatingInputAddress">Votre address</label>
+                            <label for="floatingInputAddress">Votre Addresse</label>
                         </div>
                     </div>
                 </div>
 
-                <button type="submit" class="btn btn-primary">Je m'inscris</button>
+                <button type="submit" class="btn my-orange-bg text-white">Je m'inscris</button>
             </form>
         </div>
+        <jsp:include page="/part/footer.jsp"/>
         <jsp:include page="/part/displayAlertMessage.jsp"/>
 
         <jsp:include page="/allScript.jsp"/>

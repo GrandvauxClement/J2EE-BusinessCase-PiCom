@@ -21,7 +21,7 @@ public class UserServiceTest {
         this.cityService = new CityService();
         this.userService.register("Grandvaux", "Clément", "clement.grandvaux@hotmail.com",
                 "Admin123", "6 29 16 89 43","25487563256632", "Tesla",
-                "14 boulevard Gambetta", "39000", "Lons-le-saunier", "France", "+33");
+                "14 boulevard Gambetta", "39000", "Lons-le-saunier", "France");
     }
 
     @AfterEach
@@ -41,7 +41,7 @@ public class UserServiceTest {
 
         User userCreate = this.userService.register("Dupond", "Antoine", "6nation@grandchelem.com",
                 "BestPlayer9", "384253729","25487659846632", "Stade Toulousain",
-                "9 rue de la gagne", "27000", "Toulouse", "France", "+33");
+                "9 rue de la gagne", "27000", "Toulouse", "France");
 
         users = userService.findAll();
         City city = cityService.findByName("Toulouse");
@@ -59,7 +59,7 @@ public class UserServiceTest {
         Assertions.assertThrows(DbUniqueFieldThisValueExist.class, () -> {
             this.userService.register("Grandvaux", "Clément", "clement.grandvaux@hotmail.com",
                     "Admin123", "6 29 16 89 43","25487563255532", "Tesla",
-                    "14 boulevard Gambetta", "39000", "Lons-le-saunier", "France", "+33");
+                    "14 boulevard Gambetta", "39000", "Lons-le-saunier", "France");
         });
     }
 
@@ -70,7 +70,7 @@ public class UserServiceTest {
         Assertions.assertThrows(DbUniqueFieldThisValueExist.class, () -> {
             this.userService.register("Grandvaux", "Clément", "clem.grandvaux@hotmail.com",
                     "Admin123", "6 29 16 89 43","25487563256632", "Tesla",
-                    "14 boulevard Gambetta", "39000", "Lons-le-saunier", "France", "+33");
+                    "14 boulevard Gambetta", "39000", "Lons-le-saunier", "France");
         });
     }
 

@@ -8,16 +8,16 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container ">
+    <div class="container">
         <a class="navbar-brand" href="#">
             <img src="<c:url value="/assets/image/logo/logoPiCom.png"/>" class="img-fluid" style="height: 70px">
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarNavAltMarkup">
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <%--            Navbar pour User Connecté--%>
-            <div class="navbar-nav">
+          <%--  <div class="navbar-nav">
                 <a class="nav-link" href="<c:url value="/register"/>">
                     <button class="btn my-orange-bg text-white">
                         <i class="bi bi-plus-square"></i>
@@ -36,11 +36,11 @@
                     <i class="bi bi-box-arrow-right icon-navbar"></i>
                    Deconnexion
                 </a>
-            </div>
+            </div>--%>
 
 <%--            Navbar pour User Non Connecté--%>
 
-              <%-- <div class="navbar-nav">
+               <div class="navbar-nav w-100 d-flex justify-content-end ">
                    <a class="nav-link d-flex flex-column align-items-center" href="<c:url value="/register"/>">
                        <i class="bi bi-box-arrow-in-right icon-navbar"></i>
                        Connectez-vous !
@@ -49,7 +49,7 @@
                        <i class="bi bi-person-plus-fill icon-navbar"></i>
                        Inscrivez-vous !
                    </a>
-               </div>--%>
+               </div>
         </div>
     </div>
 </nav>
