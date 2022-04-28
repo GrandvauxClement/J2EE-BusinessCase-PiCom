@@ -20,7 +20,7 @@
 </svg>
 
 <c:if test="${messageError != null && messageError != ''}">
-    <div class="container">
+    <div class="displayAlert">
         <div class="alert alert-danger alert-dismissible fade show" role="alert">
             <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
             <strong>Erreur ! </strong> <c:out value="${messageError}"/>

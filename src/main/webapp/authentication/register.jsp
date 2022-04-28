@@ -21,13 +21,16 @@
                 Lorem ipsum trekt jfjkfr potloie kitre fruits zikerto.
             </p>
 
-            <form action="<c:url value="/register"/>" method="post" class="pb-4">
+            <form action="<c:url value="/register"/>" method="post" class="pb-4 needs-validation" novalidate>
                 <div class="row py-2">
                     <div class="col-md">
                         <div class="form-floating">
+                            <label for="floatingInputFirstname">Votre prénom</label>
                             <input type="text" class="form-control" id="floatingInputFirstname" placeholder="Jean"
                                    name="firstName" required value="<c:out value="${firstName}"/>">
-                            <label for="floatingInputFirstname">Votre prénom</label>
+                            <div class="invalid-feedback">
+                                Saisissez votre prénom.
+                            </div>
                         </div>
                     </div>
                     <div class="col-md">
