@@ -20,20 +20,21 @@
           <%--  <div class="navbar-nav">
                 <a class="nav-link" href="<c:url value="/register"/>">
                     <button class="btn my-orange-bg text-white">
-                        <i class="bi bi-plus-square"></i>
+                        <i class="fas fa-plus-square"></i>
                         Nouvelle annonce
                     </button>
                 </a>
                 <a class="nav-link d-flex flex-column align-items-center" href="<c:url value="/register"/>">
-                    <i class="bi bi-folder icon-navbar"></i>
+                    <i class="fas fa-folder-open icon-navbar"></i>
                     Mes annonces
                 </a>
                 <a class="nav-link d-flex flex-column align-items-center" href="<c:url value="/register"/>">
-                    <i class="bi bi-person-lines-fill icon-navbar"></i>
+                    <i class="fas fa-user-ninja icon-navbar"></i>
                     Compte
                 </a>
                 <a class="nav-link d-flex flex-column align-items-center" href="<c:url value="/register"/>">
-                    <i class="bi bi-box-arrow-right icon-navbar"></i>
+                    <i class="fas fa-sign-out-alt icon-navbar"></i>
+
                    Deconnexion
                 </a>
             </div>--%>
@@ -42,11 +43,11 @@
 
                <div class="navbar-nav w-100 d-flex justify-content-end ">
                    <a class="nav-link d-flex flex-column align-items-center" href="<c:url value="/register"/>">
-                       <i class="bi bi-box-arrow-in-right icon-navbar"></i>
+                       <%--<i class="bi bi-box-arrow-in-right "></i>--%><i class="fas fa-sign-in-alt icon-navbar"></i>
                        Connectez-vous !
                    </a>
                    <a class="nav-link d-flex flex-column align-items-center" href="<c:url value="/register"/>">
-                       <i class="bi bi-person-plus-fill icon-navbar"></i>
+                       <%--<i class="bi bi-person-plus-fill icon-navbar"></i>--%><i class="fas fa-user-plus icon-navbar"></i>
                        Inscrivez-vous !
                    </a>
                </div>

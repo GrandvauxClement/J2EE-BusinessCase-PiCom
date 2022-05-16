@@ -13,13 +13,13 @@
             <div class="col-md-6 col-12 order-1 order-md-0 d-flex justify-content-center">
 
                 <span class="text-white"> 2022 © PiCom </span>
-                <a class="text-white" href="#">Mention légales</a>
-                <a class="text-white" href="#">Contact</a>
+                <a class="text-white" href="#"> Mention légales</a>
+                <a class="text-white" href="#"> Contact</a>
             </div>
             <div class="col-md-3 col-12 order-0 order-md-1 d-flex justify-content-center my-2 my-md-0">
-                <i class="bi bi-linkedin text-white me-2"></i>
-                <i class="bi bi-facebook text-white me-2"></i>
-                <i class="bi bi-instagram text-white me-2"></i>
+                <i class="fab fa-linkedin  text-white me-2"></i>
+                <i class="fab fa-facebook-square text-white me-2"></i>
+                <i class="fab fa-instagram  text-white me-2"></i>
             </div>
         </div>
     </div>

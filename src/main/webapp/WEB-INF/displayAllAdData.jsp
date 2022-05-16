@@ -44,26 +44,26 @@
                         <div class="col-md-7 col-12 d-flex flex-column justify-content-between">
                             <h5 class="text-center"> <c:out value="${ad.title}"/></h5>
                             <div class="d-flex align-items-center my-1">
-                                <i class="bi bi-calendar-fill my-orange-color"></i>
+                                <i class="fas fa-calendar  my-orange-color"></i>
                                 <div class="ms-2">  ${ad.startDate}</div>
                             </div>
                             <div class="d-flex align-items-center my-1">
-                                <i class="bi bi-calendar-x-fill text-danger"></i>
+                                <i class="fas fa-calendar-times  text-danger"></i>
                                 <div class="ms-2">  ${ad.startDate}</div>
                             </div>
                             <div class="row justify-content-between">
                                 <div class="col-2">
                                     <div class="d-flex align-items-center my-1">
-                                        <i class="bi bi-geo-alt-fill my-orange-color"></i>
+                                        <i class="fas fa-map-marker-alt my-orange-color"></i>
                                         <div class="ms-2"> 3</div>
                                     </div>
 
                                 </div>
                                 <div class="col-3">
                                     <div class="d-flex align-items-center">
-                                        <i class="bi bi-pencil-fill me-2 ad-list-action-edit"></i>
-                                        <i class="bi bi-pause-fill me-2 ad-list-action-pause"></i>
-                                        <i class="bi bi-trash-fill me-2 ad-list-action-delete"></i>
+                                        <i class="fas fa-pen  me-2 ad-list-action-edit"></i>
+                                        <i class="fas fa-pause  me-2 ad-list-action-pause"></i>
+                                        <i class="fas fa-trash-alt me-2 ad-list-action-delete"></i>
                                     </div>
                                 </div>
                             </div>

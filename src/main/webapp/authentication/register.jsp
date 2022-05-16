@@ -21,81 +21,110 @@
                 Lorem ipsum trekt jfjkfr potloie kitre fruits zikerto.
             </p>
 
-            <form action="<c:url value="/register"/>" method="post" class="pb-4 needs-validation" novalidate>
+            <form action="<c:url value="/register"/>" method="post" class="pb-4 needs-validation" novalidate id="registerForm">
                 <div class="row py-2">
                     <div class="col-md">
-                        <div class="form-floating">
-                            <label for="floatingInputFirstname">Votre prénom</label>
-                            <input type="text" class="form-control" id="floatingInputFirstname" placeholder="Jean"
+                        <div class="form-outline">
+
+                            <input type="text" class="form-control" id="floatingInputFirstname" placeholder="Antoine"
                                    name="firstName" required value="<c:out value="${firstName}"/>">
+                            <label for="floatingInputFirstname" class="form-label">Votre prénom</label>
                             <div class="invalid-feedback">
                                 Saisissez votre prénom.
                             </div>
                         </div>
                     </div>
                     <div class="col-md">
-                        <div class="form-floating">
+                        <div class="form-outline">
                             <input type="text" class="form-control" id="floatingInputLastname" placeholder="Dupond"
                                    name="lastName" required value="<c:out value="${lastName}"/>">
-                            <label for="floatingInputLastname">Votre Nom</label>
+                            <label for="floatingInputLastname" class="form-label">Votre Nom</label>
+                            <div class="invalid-feedback">
+                                Saisissez votre nom.
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div class="row py-2">
                     <div class="col-md">
-                        <div class="form-floating">
+                        <div class="form-outline">
                             <input type="email" class="form-control" id="floatingInputEmail" name="email" required
                                    placeholder="nom@example.com" value="<c:out value="${email}"/>">
-                            <label for="floatingInputEmail">Votre Email</label>
+                            <label for="floatingInputEmail" class="form-label">Votre Email</label>
+                            <div class="invalid-feedback">
+                                Saisissez votre email.
+                            </div>
                         </div>
                     </div>
                     <div class="col-md">
-                        <div class="form-floating">
+                        <div class="form-outline">
                             <input type="tel" class="form-control" id="floatingInputTel" name="phoneNumber" required
                                    placeholder="0695482535" value="<c:out value="${phoneNumber}"/>">
-                            <label for="floatingInputTel">Votre Numéro de téléphone</label>
+                            <label for="floatingInputTel" class="form-label">Votre Numéro de téléphone</label>
+                            <div class="invalid-feedback">
+                                Saisissez votre numéro de téléphone.
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div class="row py-2">
                     <div class="col-md">
-                        <div class="form-floating">
+                        <div class="form-outline">
                             <input type="password" class="form-control" id="floatingInputPassword" name="password"
-                                   required placeholder="Admin123" value="<c:out value="${password}"/>">
-                            <label for="floatingInputPassword">Votre mot de passe</label>
+                                   required value="<c:out value="${password}"/>">
+                            <label for="floatingInputPassword" class="form-label">Votre mot de passe</label>
+                            <div class="invalid-feedback">
+                                Saisissez votre mot de passe.
+                            </div>
                         </div>
                     </div>
                     <div class="col-md">
-                        <div class="form-floating">
+                        <div class="form-outline">
                             <input type="password" class="form-control" id="floatingInputConfirmPassword" name="confirmPassword"
-                                   required placeholder="Admin123" value="<c:out value="${confirmPassword}"/>">
-                            <label for="floatingInputConfirmPassword">Confirmer votre mot de passe</label>
+                                   required value="<c:out value="${confirmPassword}"/>">
+                            <label for="floatingInputConfirmPassword" class="form-label">Confirmer votre mot de passe</label>
+                            <div class="invalid-feedback">
+                                La confirmation doit correspondre au mot de passe.
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div class="row py-2">
                     <div class="col-md">
-                        <div class="form-floating">
+                        <div class="form-outline">
                             <input type="text" class="form-control" id="floatingInputCompany" name="companyName"
-                                   required placeholder="PiCom" value="<c:out value="${companyName}"/>">
-                            <label for="floatingInputCompany">Nom de votre Entreprise</label>
+                                   required value="<c:out value="${companyName}"/>" placeholder="Picom">
+                            <label for="floatingInputCompany" class="form-label">Nom de votre Entreprise</label>
+                            <div class="invalid-feedback">
+                                Saisissez le nom de votre entreprise.
+                            </div>
                         </div>
                     </div>
                     <div class="col-md">
-                        <div class="form-floating">
+                        <div class="form-outline">
                             <input type="text" class="form-control" id="floatingInputNumSiret" name="numSiret" required
                                    placeholder="25495423568425" value="<c:out value="${numSiret}"/>">
-                            <label for="floatingInputNumSiret">Son numéro SIRET</label>
+                            <label for="floatingInputNumSiret" class="form-label">Numéro SIRET de votre entreprise</label>
+                            <div class="invalid-feedback">
+                                Saisissez le numéro SIRET de votre entreprise.
+                            </div>
                         </div>
                     </div>
                 </div>
 
                 <div class="row py-2">
                     <div class="col">
-                        <div class="form-floating">
+                        <div class="form-outline">
                             <input type="text" class="form-control" id="floatingInputAddress" name="address" required
-                                   placeholder="10 rue de la pub 64000 Clermont" value="<c:out value="${address}"/>">
-                            <label for="floatingInputAddress">Votre Addresse</label>
+                                   value="<c:out value="${address}"/>" placeholder="7 avenue du stade 64000 Clermont">
+                            <label for="floatingInputAddress" class="form-label">Votre Adresse</label>
+                            <div class="invalid-feedback">
+                                Saisissez votre adresse.
+                            </div>
+
+                        </div>
+                        <div id="displayListAdress">
+
                         </div>
                     </div>
                 </div>

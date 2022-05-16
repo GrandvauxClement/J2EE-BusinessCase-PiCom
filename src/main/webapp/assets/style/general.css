@@ -67,3 +67,10 @@ h2{
     width: 400px;
     right: 30px;
 }
+#displayListAdress{
+    height: 200px;
+    overflow: scroll;
+}
+#displayListAdress div.list-group-item:hover{
+    cursor: pointer;
+}
