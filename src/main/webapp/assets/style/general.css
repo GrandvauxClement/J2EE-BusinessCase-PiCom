@@ -62,7 +62,7 @@ h2{
     font-size: 2.8rem;
 }
 .displayAlert{
-    position: absolute;
+    position: fixed;
     top: 30px;
     width: 400px;
     right: 30px;

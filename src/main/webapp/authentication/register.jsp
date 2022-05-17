@@ -48,11 +48,22 @@
                 <div class="row py-2">
                     <div class="col-md">
                         <div class="form-outline">
-                            <input type="email" class="form-control" id="floatingInputEmail" name="email" required
-                                   placeholder="nom@example.com" value="<c:out value="${email}"/>">
+                            <input type="email" class="form-control
+                                <c:if test="${emailAlreadyUse != null && emailAlreadyUse == true}">is-invalid</c:if>"
+                                id="floatingInputEmail" name="email" required
+                                placeholder="nom@example.com" value="<c:out value="${email}"/>"
+                            >
                             <label for="floatingInputEmail" class="form-label">Votre Email</label>
                             <div class="invalid-feedback">
-                                Saisissez votre email.
+
+                            <c:choose>
+                                <c:when test="${emailAlreadyUse != null && emailAlreadyUse == true}">
+                                   Cet email est déjà utilisé
+                                </c:when>
+                                <c:otherwise>
+                                    Saisissez votre email.
+                                </c:otherwise>
+                            </c:choose>
                             </div>
                         </div>
                     </div>
@@ -102,11 +113,22 @@
                     </div>
                     <div class="col-md">
                         <div class="form-outline">
-                            <input type="text" class="form-control" id="floatingInputNumSiret" name="numSiret" required
-                                   placeholder="25495423568425" value="<c:out value="${numSiret}"/>">
+                            <input type="text" class="form-control
+                               <c:if test="${numSiretAlreadyUse != null && numSiretAlreadyUse == true}">is-invalid</c:if>"
+                                   id="floatingInputNumSiret" name="numSiret" required
+                                   placeholder="25495423568425" value="<c:out value="${numSiret}"/>"
+                            >
                             <label for="floatingInputNumSiret" class="form-label">Numéro SIRET de votre entreprise</label>
                             <div class="invalid-feedback">
-                                Saisissez le numéro SIRET de votre entreprise.
+                                <c:choose>
+                                    <c:when test="${numSiretAlreadyUse != null && numSiretAlreadyUse == true}">
+                                        Ce numéro SIRET est déjà utilisé par un autre compte
+                                    </c:when>
+                                    <c:otherwise>
+                                        Saisissez le numéro SIRET de votre entreprise.
+                                    </c:otherwise>
+                                </c:choose>
+
                             </div>
                         </div>
                     </div>
