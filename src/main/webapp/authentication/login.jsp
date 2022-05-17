@@ -27,11 +27,11 @@
                                         <div class="text-center">
                                             <img src="<c:url value="/assets/image/logo/logoPiCom.png"/>"
                                                  style="width: 185px;" alt="logo">
-                                            <h4 class="mt-1 mb-5 pb-1">We are The PiCom Team</h4>
+                                            <h4 class="mt-1 mb-5 pb-1">Nous sommes l'équipe Picom</h4>
                                         </div>
 
                                         <form action="<c:url value="/login"/>" method="post" class="pb-4 needs-validation" novalidate>
-                                            <p>Please login to your account</p>
+                                            <p>Connectez-vous à votre compte</p>
 
                                             <div class="form-outline mb-4">
                                                 <input type="email" id="form2Example11" class="form-control" name="email"
