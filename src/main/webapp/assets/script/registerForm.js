@@ -38,7 +38,6 @@
 const adressInput = document.querySelector("#registerForm #floatingInputAddress");
 adressInput.onkeydown = (e) => {
     const query = e.target.value;
-    console.log(query);
     let response = {features: []};
 
     fetch(
@@ -65,26 +64,6 @@ adressInput.onkeydown = (e) => {
                             document.querySelector("#displayListAdress").innerHTML = "";
                         }
                         ul.append(elements);
-                      /*  response.features.push(
-                            {
-                                geometry: {
-                                    coordinates: data.geometry.coordinates,
-                                    type: data.geometry.type
-                                },
-                                properties: {
-                                    country: "France",
-                                    postcode: data.properties.postcode,
-                                    city: data.properties.city,
-                                    country_code: "fr",
-                                    label: data.properties.label === data.properties.name ?
-                                        data.properties.postcode + " " + data.properties.name :
-                                        data.properties.label,
-                                    address: data.properties.label === data.properties.name ?
-                                        "" :
-                                        data.properties.name,
-                                },
-                                type: "Feature"
-                            })*/
                     })
                     document.querySelector("#displayListAdress").innerHTML = "";
                     document.querySelector("#displayListAdress").append(ul);
@@ -94,12 +73,4 @@ adressInput.onkeydown = (e) => {
             //res.status(err.statusCode).json(err);
             console.log("Erreur ",err);
     });
-
-    console.log("features", response);
 }
-
-const adressListDisplay = document.querySelector("#registerForm div.list-group div.list-group-item");
-/*
-adressInput.addEventListener("keydown", (event) => {
-
-})*/
