@@ -90,7 +90,7 @@ public class RegisterServlet extends HttpServlet {
                     req.getSession().setAttribute("connected", true);
                     req.getSession().setAttribute("user", userCreate);
 
-                    resp.sendRedirect("compte/mes-annonces?register=true");
+                    resp.sendRedirect("account/ad/list?register=true");
                 } catch (DbUniqueFieldThisValueExist e) {
 
                     req.setAttribute("messageError", e.getMessage());

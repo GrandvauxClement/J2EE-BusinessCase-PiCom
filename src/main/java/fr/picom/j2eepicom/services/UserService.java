@@ -5,12 +5,13 @@ import fr.picom.j2eepicom.dao.CountryDAO;
 import fr.picom.j2eepicom.dao.RoleDAO;
 import fr.picom.j2eepicom.dao.UserDAO;
 import fr.picom.j2eepicom.exceptions.DbUniqueFieldThisValueExist;
-import fr.picom.j2eepicom.models.City;
-import fr.picom.j2eepicom.models.Country;
-import fr.picom.j2eepicom.models.Role;
-import fr.picom.j2eepicom.models.User;
+import fr.picom.j2eepicom.models.*;
+import org.mindrot.jbcrypt.BCrypt;
 
 import java.sql.SQLException;
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class UserService {
@@ -61,6 +62,8 @@ public class UserService {
             //By default all new User have role user
             Role role = roleDAO.findByName("User");
 
+            password = BCrypt.hashpw(password, BCrypt.gensalt());
+
             return this.userDAO.create(lastName, firstName, email, password, phoneNumber, numSiret, companyName,
                     roadName, postalCode, checkCityExist, role);
         } catch (SQLException e){
@@ -72,7 +75,13 @@ public class UserService {
 
     public User login(String email, String password) {
         try {
-            return this.userDAO.login(email, password);
+            User user = this.userDAO.findByField("email", email);
+            if (user != null && BCrypt.checkpw(password, user.getPassword())){
+                return user;
+
+            }else {
+                return null;
+            }
 
         } catch (SQLException e){
             return null;

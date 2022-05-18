@@ -3,6 +3,8 @@ package fr.picom.j2eepicom.models;
 import fr.picom.j2eepicom.models.db.TableName;
 
 import java.text.DecimalFormat;
+import java.time.LocalDate;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -86,6 +88,13 @@ public class Ad extends AbstractEntity{
 
     public void setStartDate(Date startDate) {
         this.startDate = startDate;
+    }
+
+    public Date getEndDate() {
+        Calendar c = Calendar.getInstance();
+        c.setTime(startDate);
+        c.add(Calendar.DATE, numDaysOfDiffusion);
+        return c.getTime();
     }
 
     public Integer getNumDaysOfDiffusion() {

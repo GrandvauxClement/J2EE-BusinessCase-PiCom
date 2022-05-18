@@ -114,8 +114,8 @@ INSERT INTO roles (name) VALUES
    ('User');
 
 INSERT INTO user (last_name, first_name, email, password, phone_number, is_verified, num_siret, company_name, road_name, postal_code, id_city, id_role)
-VALUES ( 'admin', 'admin', 'admin@admin.com', 'Admin123', '66666666', true, '14242535652521', 'admin', 'rue admin', '69000', 1, 1),
-       ('Jack', 'Seller','contact@hb.com', 'Admin123', '385685894', true, '94258436525325', 'hb', 'rue de la formation', '63000', 3, 1 );
+VALUES ( 'admin', 'admin', 'admin@admin.com', '$2a$10$mijxhHWPRgXi.eMDB..TgO7S.rwelrs5x6CyuqHuUJFmyqGhOK.8S', '66666666', true, '14242535652521', 'admin', 'rue admin', '69000', 1, 1),
+       ('Jack', 'Seller','contact@hb.com', '$2a$10$mijxhHWPRgXi.eMDB..TgO7S.rwelrs5x6CyuqHuUJFmyqGhOK.8S', '385685894', true, '94258436525325', 'hb', 'rue de la formation', '63000', 3, 1 );
 
 INSERT INTO time_interval(time_slot, nbre_ad, coef_multi) VALUES
    (6.7, NULL, 1.8),
@@ -146,8 +146,8 @@ INSERT INTO stop(name, latitude, longitude, id_area, address_ip) VALUES
 
 INSERT INTO ad(title, image, text, created_at, start_date, num_days_of_diffusion, id_user) VALUES
    ('Annonce pub spot disponible', 'image.png', 'Spot publicitaire disponible, inscrivez vous sur picom.fr ou contacter nous au 0352958457', '2022-04-20', '2022-04-28', 20, 1),
-   ('Ma première annonce', 'image.jpeg', 'Lorem ipsum super texte de l annonce 2 qui va servir de description', '2022-04-20', '2022-04-30', 30, 2),
-   ('Ma deuxième annonce', 'image.png', 'Lorem ipsum super texte de l annonce 2 qui va servir de description', '2022-04-21', '2022-05-30', 60, 2);
+   ('Ma première annonce', 'image.jpeg', 'Lorem ipsum super texte de l annonce 2 qui va servir de description', '2022-04-20', '2022-04-30', 30, 1),
+   ('Ma deuxième annonce', 'image.png', 'Lorem ipsum super texte de l annonce 2 qui va servir de description', '2022-04-21', '2022-05-30', 60, 1);
 
 INSERT INTO ad_area(id_ad, id_area) VALUES
    (1, 1),

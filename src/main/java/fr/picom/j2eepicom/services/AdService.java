@@ -5,6 +5,7 @@ import fr.picom.j2eepicom.models.Ad;
 import fr.picom.j2eepicom.models.Area;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -42,12 +43,28 @@ public class AdService {
         }
     }
 
-    public List<Ad> findAllAdOfOneUser(Long idUser){
+    public List<Ad> findAllAdOfOneUser(Long idUser, String orderField, String orderMethod){
         try {
-            return this.adDAO.findAllAdOfOneUser(idUser);
+            return this.adDAO.findAllAdOfOneUser(idUser, orderField, orderMethod);
         }catch (SQLException e){
+            e.printStackTrace();
             return null;
         }
+    }
+
+    public List<Ad> getListAdByActiveOrIncative(List<Ad> adList, boolean isActive){
+        List<Ad> adListActive = new ArrayList<>();
+        Date dateNow = new Date();
+        for (Ad ad : adList){
+            if (ad.getStartDate().compareTo(dateNow) <= 0 && ad.getEndDate().compareTo(dateNow) > 0){
+                if (isActive){
+                    adListActive.add(ad);
+                }
+            } else if(!isActive){
+                adListActive.add(ad);
+            }
+        }
+        return adListActive;
     }
 
 

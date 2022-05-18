@@ -26,6 +26,16 @@ public class UserInfoFilter implements Filter {
         HttpSession httpSession = req.getSession();
         Boolean isConnected = (Boolean) httpSession.getAttribute("connected");
 
+        String checkIfRegister = req.getParameter("register");
+        if (checkIfRegister != null && checkIfRegister.equalsIgnoreCase("true")){
+            req.setAttribute("messageSuccess", "test display register work");
+        }
+
+        String checkIfLogin = req.getParameter("login");
+        if (checkIfLogin != null && checkIfLogin.equalsIgnoreCase("true")){
+            req.setAttribute("messageSuccess", "Bienvenue");
+        }
+
         if (isConnected != null && isConnected){
 
             req.setAttribute("userConnected", httpSession.getAttribute("user"));
