@@ -31,7 +31,7 @@
                             <i class="fas fa-folder-open icon-navbar"></i>
                             Mes annonces
                         </a>
-                        <a class="nav-link d-flex flex-column align-items-center" href="<c:url value="/register"/>">
+                        <a class="nav-link d-flex flex-column align-items-center" href="<c:url value="/account"/>">
                             <i class="fas fa-user-ninja icon-navbar"></i>
                             Compte
                         </a>

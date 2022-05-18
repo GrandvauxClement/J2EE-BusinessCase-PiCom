@@ -112,4 +112,15 @@ public class UserService {
             return null;
         }
     }
+
+    public Integer update(Long id, String lastName, String firstName, String phoneNumber,
+                       String companyName, String roadName){
+        try{
+        return this.userDAO.update(id, lastName, firstName, phoneNumber, companyName,
+                roadName);
+    } catch (SQLException e){
+        e.printStackTrace();
+        return null;
+    }
+    }
 }

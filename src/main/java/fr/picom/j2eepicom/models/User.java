@@ -67,6 +67,16 @@ public class User extends AbstractEntity{
         this.role = role;
     }
 
+    public User(String lastName, String firstName, String phoneNumber, String companyName, String roadName) {
+        super(TableName.USER);
+        this.lastName = lastName;
+        this.firstName = firstName;
+        this.phoneNumber = phoneNumber;
+        this.companyName = companyName;
+        this.roadName = roadName;
+    }
+
+
     public Long getId() {
         return id;
     }
