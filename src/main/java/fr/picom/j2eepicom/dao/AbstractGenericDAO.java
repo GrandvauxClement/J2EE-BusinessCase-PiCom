@@ -1,6 +1,7 @@
 package fr.picom.j2eepicom.dao;
 
 import fr.picom.j2eepicom.db.DBConnect;
+import fr.picom.j2eepicom.models.User;
 import fr.picom.j2eepicom.models.db.TableName;
 
 import java.sql.Connection;
@@ -135,4 +136,5 @@ public abstract class AbstractGenericDAO<T> implements GenricDAO<T> {
         }
         return response;
     }
+
 }

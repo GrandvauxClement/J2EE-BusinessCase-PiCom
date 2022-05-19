@@ -8,21 +8,7 @@
     Array.prototype.slice.call(forms).forEach((form) => {
         form.addEventListener('submit', (event) => {
             let formIsInvalid = false;
-            if (form[4].value !== form[5].value){
-                if (form[5].classList.contains("is-valid")){
-                    form[5].classList.replace("is-valid", "is-invalid")
-                } else if (!form[5].classList.contains("is-invalid")){
-                    form[5].classList.add("is-invalid");
-                }
-                formIsInvalid = true;
 
-            }else {
-                if (form[5].classList.contains("is-invalid")){
-                    form[5].classList.replace("is-invalid", "is-valid")
-                }else if (!form[5].classList.contains("valid")){
-                    form[5].classList.add("valid");
-                }
-            }
             if (!form.checkValidity()){
                 formIsInvalid = true;
             }
@@ -34,11 +20,87 @@
         }, false);
     });
 })();
+const switchValidInvalidClass = (input, isValid, message = null) => {
+
+   if (message != null){
+        input.nextElementSibling.nextElementSibling.innerHTML = message;
+   }
+    if (isValid){
+        if (input.classList.contains("is-invalid")){
+            input.classList.replace("is-invalid", "is-valid")
+        }else if (!input.classList.contains("valid")){
+            input.classList.add("valid");
+        }
+    } else {
+        if (input.classList.contains("is-valid")){
+            input.classList.replace("is-valid", "is-invalid")
+        } else if (!input.classList.contains("is-invalid")){
+            input.classList.add("is-invalid");
+        }
+    }
+}
+
+const allInput = document.querySelectorAll("#registerForm input");
+Array.prototype.slice.call(allInput).forEach((input) => {
+    input.oninput = (e) => {
+        if (e.target.name === "firstName" || e.target.name === "lastName" || e.target.name === "companyName"){
+
+            if (e.target.value.length > 1){
+                switchValidInvalidClass(e.target, true);
+            } else {
+                switchValidInvalidClass(e.target, false);
+            }
+        } else if (e.target.name === "email"){
+
+            const regex = /([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9_-]+)/gi;
+            if (e.target.value.match(regex)){
+                switchValidInvalidClass(e.target, true);
+            } else {
+                switchValidInvalidClass(e.target, false);
+            }
+        } else if (e.target.name === "phoneNumber"){
+
+            const regexPhone = /(?:[-+()/ ]*\d){10,13}/gm;
+            if (e.target.value.match(regexPhone)){
+                switchValidInvalidClass(e.target, true);
+            }else {
+                switchValidInvalidClass(e.target, false);
+            }
+        } else if (e.target.name === "password" || e.target.name === "confirmPassword"){
+
+            const password = document.querySelector('#registerForm [name="password"]');
+            const confirmPassword = document.querySelector('#registerForm [name="confirmPassword"]');
+                if (password.value.length < 6){
+                    console.log("Je passe là")
+                    switchValidInvalidClass(password, false, "Le mot de passe doit contenir 6 caractère au minimum");
+                } else if (password.value === confirmPassword.value){
+                    switchValidInvalidClass(password, true);
+                    switchValidInvalidClass(confirmPassword, true);
+                }else {
+                    switchValidInvalidClass(password, false, "");
+                    switchValidInvalidClass(confirmPassword, false);
+                }
+
+
+        } else if (e.target.name === "numSiret"){
+            const regexIsNumeric =  /^-?\d+$/;
+            if (e.target.value.length === 14 && e.target.value.match(regexIsNumeric)){
+                switchValidInvalidClass(e.target, true);
+            } else {
+                if (e.target.value.length === 0){
+                    switchValidInvalidClass(e.target, false, "Saisissez le numéro SIRET de votre entreprise");
+                } else {
+                    switchValidInvalidClass(e.target, false, "Votre numéro SIRET doit contenir 14 chiffres");
+                }
+
+            }
+        }
+    }
+})
 
 const adressInput = document.querySelector("#registerForm #floatingInputAddress");
 adressInput.onkeydown = (e) => {
     const query = e.target.value;
-    let response = {features: []};
 
     fetch(
         // TODO Add user location in search query to optimize result

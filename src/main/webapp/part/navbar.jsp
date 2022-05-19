@@ -20,18 +20,18 @@
             <c:choose>
                 <%--            Navbar pour User Connecté--%>
                 <c:when test="${userConnected != null}">
-                    <div class="navbar-nav">
+                    <div class="navbar-nav w-100 d-flex justify-content-end ">
                         <a class="nav-link" href="<c:url value="/register"/>">
                             <button class="btn my-orange-bg text-white">
                                 <i class="fas fa-plus-square"></i>
                                 Nouvelle annonce
                             </button>
                         </a>
-                        <a class="nav-link d-flex flex-column align-items-center" href="<c:url value="/compte/mes-annonces"/>">
+                        <a class="nav-link d-flex flex-column align-items-center" href="<c:url value="account/ad/list"/>">
                             <i class="fas fa-folder-open icon-navbar"></i>
                             Mes annonces
                         </a>
-                        <a class="nav-link d-flex flex-column align-items-center" href="<c:url value="/register"/>">
+                        <a class="nav-link d-flex flex-column align-items-center" href="<c:url value="/account"/>">
                             <i class="fas fa-user-ninja icon-navbar"></i>
                             Compte
                         </a>
@@ -45,7 +45,7 @@
                 <c:otherwise>
                     <%--            Navbar pour User Non Connecté--%>
 
-                    <div class="navbar-nav w-100 d-flex justify-content-end ">
+                    <div class="navbar-nav w-100 d-flex justify-content-end">
                         <a class="nav-link d-flex flex-column align-items-center" href="<c:url value="/login"/>">
                             <i class="fas fa-sign-in-alt icon-navbar"></i>
                             Connectez-vous !

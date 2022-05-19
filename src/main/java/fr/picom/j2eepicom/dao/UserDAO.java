@@ -6,6 +6,7 @@ import fr.picom.j2eepicom.models.Role;
 import fr.picom.j2eepicom.models.User;
 import fr.picom.j2eepicom.models.db.TableName;
 
+import javax.servlet.http.HttpSession;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -153,6 +154,43 @@ public class UserDAO extends AbstractGenericDAO<User> {
             DBConnect.closeAll(ps, rs);
         }
         return currentPojo;
+    }
+
+    public Integer update(Long id, String lastName, String firstName, String phoneNumber,
+                       String companyName, String postalCode, String roadName, City city) throws SQLException {
+        PreparedStatement ps = null;
+        Integer nbUpdated = 0;
+
+        try {
+
+            String query = "UPDATE " + tableName + " SET " +
+                    "last_name= ?," +
+                    "first_name=?," +
+                    "phone_number=?," +
+                    "company_name=?," +
+                    "postal_code=?," +
+                    "road_name=?," +
+                    "id_city=?" +" WHERE id=" +"?";
+
+            ps = this.connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
+            ps.setString(1, lastName);
+            ps.setString(2, firstName);
+            ps.setString(3, phoneNumber);
+            ps.setString(4, companyName);
+            ps.setString(5, postalCode);
+            ps.setString(6, roadName);
+            ps.setLong(7, city.getId());
+
+            ps.setLong(8, id);
+
+
+            ps.executeUpdate();
+
+        } catch (SQLException e){
+            e.printStackTrace();
+        }
+
+        return nbUpdated;
     }
 
 }

@@ -45,7 +45,7 @@ public class LoginServlet extends HttpServlet {
             req.getSession().setAttribute("user", user);
 
           //  req.getRequestDispatcher("/authentication/login.jsp").forward(req, resp);
-           resp.sendRedirect("compte/mes-annonces?login=true");
+           resp.sendRedirect("account/ad/list?login=true");
         }
 
     }
