@@ -41,7 +41,6 @@ public class AdServlet extends HttpServlet {
             String checkIfDisplayAdActive = req.getParameter("adActive");
             String getParamOrder = req.getParameter("order");
             List<Ad> allAdList;
-            logger.log(Level.INFO, "Mon USer !!!  : " + user);
             if (getParamOrder != null){
 
                 if (getParamOrder.equalsIgnoreCase("startDateDesc")){

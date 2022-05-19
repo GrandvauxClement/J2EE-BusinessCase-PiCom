@@ -18,12 +18,12 @@
 <body>
 <jsp:include page="/part/navbar.jsp"/>
 <div class="container">
-    <form action="<c:url value="/adCreation"/>" method="post" class="pb-4 needs-validation" novalidate id="adCreation" enctype="multipart/form-data">
+    <form action="<c:url value="/account/adCreation"/>" method="post" class="pb-4 needs-validation" novalidate id="adCreation" enctype="multipart/form-data">
 
         <div class="row py-2">
         <div class="col-md">
             <div class="form-outline">
-                <input type="text" class="form-control" id="title" placeholder="Antoine"
+                <input type="text" class="form-control" id="title" placeholder="Nom de la campagne"
                        name="title" required value="<c:out value="${title}"/>">
                 <label for="title" class="form-label">Nom de la campagne</label>
                 <div class="invalid-feedback">
@@ -37,7 +37,7 @@
         <div class="row py-2">
             <div class="col-md">
                 <div class="form-outline">
-                    <input type="date" class="form-control" id="adStart" placeholder="Antoine"
+                    <input type="date" class="form-control" id="adStart" placeholder="01/01/1111"
                            name="startAt" required value="<c:out value="${startAt}"/>">
                     <label for="adStart" class="form-label">Date début</label>
                     <div class="invalid-feedback">
@@ -48,7 +48,7 @@
 
             <div class="col-md">
                 <div class="form-outline">
-                    <input type="date" class="form-control" id="adEnd" placeholder="Antoine"
+                    <input type="date" class="form-control" id="adEnd" placeholder="02/02/2222"
                            name="endAt" required value="<c:out value="${endAt}"/>">
                     <label for="adEnd" class="form-label">date fin</label>
                     <div class="invalid-feedback">
@@ -71,10 +71,10 @@
         <div class="row py-2">
             <div class="col-md">
                 <div class="form-outline">
-                    <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+                    <select id="zone" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
                         <option selected>Choisir zone(s)</option>
                         <c:forEach items="${areaList}" var = 'area' >
-                            <option value="area.id">${area.name}</option>
+                            <option value=${area.id}>${area.name}</option>
                         </c:forEach>
                     </select>
                 </div>
@@ -84,10 +84,10 @@
 
             <div class="col-md">
                 <div class="form-outline">
-                    <select class="form-select form-select-lg mb-3" size="3" multiple aria-label=".form-select-lg example">
+                    <select id="inter"class="form-select form-select-lg mb-3" size="3" multiple aria-label=".form-select-lg example">
                         <option selected>Choisir plage(s) horraire</option>
                         <c:forEach items="${timeIntervalList}" var = 'interval' >
-                            <option value="interval.id">${interval.timeSlot}</option>
+                            <option value=${interval.id}>${interval.timeSlot}</option>
                         </c:forEach>
                     </select>
 
@@ -112,9 +112,36 @@
 <script src="https://cdn.ckeditor.com/ckeditor5/34.0.0/classic/ckeditor.js"></script>
 
 <script>
-    const test = document.querySelector( '#addResult' )
+    const test = document.querySelector( '#addResult' );
+
+    const res = document.querySelector('#resultat');
+
     test.addEventListener("click",function(){
-        alert("hello World");
+
+        var select1 = [];
+        for (var option of document.getElementById('zone').options)
+        {
+            if (option.selected) {
+                select1.push(option.value);
+                select1.push(option.text);
+
+            }
+        }
+        res.append(select1);
+
+            var selected = [];
+            for (var option of document.getElementById('inter').options)
+            {
+                if (option.selected) {
+                    selected.push(option.value);
+                    selected.push(option.text);
+
+                }
+            }
+        res.append(selected);
+
+
+
     });
 </script>
 
@@ -127,10 +154,6 @@
 </script>
 
 
-<script>
-    const stepper = document.querySelector('#stepper2');
-    new CDB.Stepper(stepper);
-</script>
 
 
 </body>

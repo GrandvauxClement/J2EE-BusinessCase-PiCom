@@ -2,32 +2,32 @@ package fr.picom.j2eepicom.servlet.adCreation;
 
 import fr.picom.j2eepicom.dao.AreaDAO;
 import fr.picom.j2eepicom.dao.TimeIntervalDAO;
+import fr.picom.j2eepicom.models.Area;
 import fr.picom.j2eepicom.models.TimeInterval;
+import fr.picom.j2eepicom.models.User;
 import fr.picom.j2eepicom.services.AdService;
 import fr.picom.j2eepicom.servlet.AdDataServlet;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.Part;
-import java.awt.geom.Area;
+import javax.servlet.http.*;
 import java.io.File;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.logging.Logger;
 
-@WebServlet(name = "adCreation", value = "/adCreation")
+@WebServlet(name = "adCreation", value = "/account/adCreation")
 @MultipartConfig( fileSizeThreshold = 1024 * 1024,
         maxFileSize = 1024 * 1024 * 5,
         maxRequestSize = 1024 * 1024 * 5 * 5 )
 
-public class AdCreation extends HttpServlet {
+public class AdCreationServlet extends HttpServlet {
     private AdService adService;
     private AreaDAO areaDAO;
     private TimeIntervalDAO timeIntervalDAO;
@@ -62,15 +62,17 @@ public class AdCreation extends HttpServlet {
         }
 
 
-        req.getRequestDispatcher("WEB-INF/adCreation/adCreation.jsp").forward(req, resp);
+        req.getRequestDispatcher("/WEB-INF/adCreation/adCreation.jsp").forward(req, resp);
 
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        HttpSession session = req.getSession();
         String title = req.getParameter("title");
         String startAt = req.getParameter("startAt");
         String endAt = req.getParameter("endAt");
+        User user = (User) session.getAttribute("user");
         Long numberDays = null;
 
         Date dateStart = null;
@@ -93,7 +95,21 @@ public class AdCreation extends HttpServlet {
                     System.out.println(fullPath);
                     part.write( fullPath );
 
+                List<TimeInterval> allTimeIntervalList = this.timeIntervalDAO.findAll();
 
+                List<TimeInterval> timeIntervalList = new ArrayList<>();
+                timeIntervalList.add(allTimeIntervalList.get(2));
+                timeIntervalList.add(allTimeIntervalList.get(5));
+                timeIntervalList.add(allTimeIntervalList.get(8));
+
+                Area area = areaDAO.findById(1L);
+                area.setTimeIntervalList(timeIntervalList);
+
+                List<Area> areaList = new ArrayList<>();
+                areaList.add(area);
+
+                adService.create(title,fileName,null,dateStart,numberDays.intValue(), user.getId(), areaList);
+                resp.sendRedirect("account/add/list");
 
             }else{
                 System.out.println("********************************************");
@@ -101,9 +117,9 @@ public class AdCreation extends HttpServlet {
 
         } catch (ParseException e) {
             e.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
-
-
 
 
     }

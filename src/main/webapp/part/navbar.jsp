@@ -21,7 +21,7 @@
                 <%--            Navbar pour User Connecté--%>
                 <c:when test="${userConnected != null}">
                     <div class="navbar-nav w-100 d-flex justify-content-end ">
-                        <a class="nav-link" href="<c:url value="/register"/>">
+                        <a class="nav-link" href="<c:url value="/account/adCreation"/>">
                             <button class="btn my-orange-bg text-white">
                                 <i class="fas fa-plus-square"></i>
                                 Nouvelle annonce
