@@ -37,6 +37,9 @@ button.my-blueGreen-bg:hover{
 .ad-list-item i{
     font-size: 20px;
 }
+.ad-list-action{
+    color: grey;
+}
 .ad-list-action-edit:hover{
     cursor: pointer;
     color: #2EC4B6;

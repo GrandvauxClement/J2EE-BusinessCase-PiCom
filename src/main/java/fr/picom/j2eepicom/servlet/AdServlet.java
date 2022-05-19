@@ -80,7 +80,7 @@ public class AdServlet extends HttpServlet {
         } else {
             try {
                 Long id = Long.valueOf(action);
-                req.setAttribute("user", adService.findById(id));
+                req.setAttribute("ad", adService.findById(id));
             } catch (NumberFormatException e) {
 
             }

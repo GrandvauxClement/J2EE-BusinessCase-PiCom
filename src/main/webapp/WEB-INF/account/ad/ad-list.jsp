@@ -51,7 +51,7 @@
                 <c:forEach items="${adList}" var="ad">
                     <div class="row my-3 ad-list-item">
                         <div class="col-md-5 col-12">
-                            <img src="https://www.ecologie.gouv.fr/sites/default/files/styles/standard/public/Stop%20pub%20seul.jpg?itok=yb4cwbtT" class="card-img-top" alt="...">
+                            <img src="<c:url value='/assets/image/ad/${ad.image}'/>" class="card-img-top" alt="...">
                         </div>
                         <div class="col-md-7 col-12 d-flex flex-column justify-content-between">
                             <h5 class="text-center"> <c:out value="${ad.title}"/></h5>
@@ -73,7 +73,9 @@
                                 </div>
                                 <div class="col-3">
                                     <div class="d-flex align-items-center">
-                                        <i class="fas fa-pen me-2 ad-list-action-edit"></i>
+                                        <a class="ad-list-action" href="<c:url value="/account/ad/${ad.id}"/>">
+                                            <i class="fas fa-pen me-2 ad-list-action-edit"></i>
+                                        </a>
                                         <i class="fas fa-pause me-2 ad-list-action-pause"></i>
                                         <i class="fas fa-trash-alt me-2 ad-list-action-delete"></i>
                                     </div>

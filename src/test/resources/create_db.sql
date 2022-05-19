@@ -145,15 +145,19 @@ INSERT INTO stop(name, latitude, longitude, id_area, address_ip) VALUES
   ( 'centre-ville-5', 45.6584528, 43.98478557, 1, '197.25.68.25' );
 
 INSERT INTO ad(title, image, text, created_at, start_date, num_days_of_diffusion, id_user) VALUES
-   ('Annonce pub spot disponible', 'image.png', 'Spot publicitaire disponible, inscrivez vous sur picom.fr ou contacter nous au 0352958457', '2022-04-20', '2022-04-28', 20, 1),
-   ('Ma première annonce', 'image.jpeg', 'Lorem ipsum super texte de l annonce 2 qui va servir de description', '2022-04-20', '2022-04-30', 30, 1),
-   ('Ma deuxième annonce', 'image.png', 'Lorem ipsum super texte de l annonce 2 qui va servir de description', '2022-04-21', '2022-05-30', 60, 1);
+   ('Venez decouvrir la savane', 'discover-jungle.jpg', 'Spot publicitaire disponible, inscrivez vous sur picom.fr ou contacter nous au 0352958457', '2022-04-20', '2022-04-28', 20, 1),
+   ('Votre super coiffeur', 'lyon_hair_shop.jpg', 'Lorem ipsum super texte de l annonce 2 qui va servir de description', '2022-04-20', '2022-04-30', 30, 1),
+   ('Encore Malade ?', 'ted-sick.jpg', 'Lorem ipsum super texte de l annonce 2 qui va servir de description', '2022-04-21', '2022-05-30', 60, 1),
+   ('Campagne nike', 'nike.png', 'Lorem ipsum super texte de l annonce 2 qui va servir de description', '2022-05-12', '2022-05-15', 60, 1);
 
 INSERT INTO ad_area(id_ad, id_area) VALUES
    (1, 1),
    (1, 2),
    (2, 1),
-   (3,1);
+   (3, 1),
+   (3, 3),
+   (4, 2),
+   (4, 3);
 
 INSERT INTO ad_time_interval(id_ad_area, id_time_interval) VALUES
    (1, 2),
@@ -163,4 +167,13 @@ INSERT INTO ad_time_interval(id_ad_area, id_time_interval) VALUES
    (3, 5),
    (3, 6),
    (4, 3),
-   (4,6);
+   (4, 6),
+   (5, 4),
+   (5, 8),
+   (5, 12),
+   (6, 2),
+   (6, 11),
+   (7, 4),
+   (7, 5),
+   (7, 9),
+   (7, 11);
