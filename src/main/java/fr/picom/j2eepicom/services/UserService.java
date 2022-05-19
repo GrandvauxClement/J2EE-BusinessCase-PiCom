@@ -114,10 +114,21 @@ public class UserService {
     }
 
     public Integer update(Long id, String lastName, String firstName, String phoneNumber,
-                       String companyName, String roadName){
+                       String companyName, String postalCode, String roadName, String cityName, String countryName) throws DbUniqueFieldThisValueExist{
         try{
+            //Check if country exist in db and create if he doesn't
+            Country checkCountryExist = countryDAO.findByName(countryName);
+            if (checkCountryExist == null){
+                checkCountryExist = countryDAO.create(countryName, "+52");
+            }
+            //Check if city exist in db and create if he doesn't
+            City checkCityExist = cityDAO.findByName(cityName);
+            if (checkCityExist == null){
+                checkCityExist = cityDAO.create(cityName, checkCountryExist);
+            }
         return this.userDAO.update(id, lastName, firstName, phoneNumber, companyName,
-                roadName);
+                postalCode, roadName, checkCityExist);
+
     } catch (SQLException e){
         e.printStackTrace();
         return null;

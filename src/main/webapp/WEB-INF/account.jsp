@@ -122,7 +122,7 @@
                                     <p class="mb-0">Ville</p>
                                 </div>
                                 <div class="col-sm-9">
-                                    <input class="text-muted mb-0" type="text" name="city" value="${userConnected.city.name}">
+                                    <input class="text-muted mb-0" type="text" name="cityName" value="${userConnected.city.name}">
                                 </div>
                             </div>
                             <hr>
@@ -131,7 +131,7 @@
                                     <p class="mb-0">Pays</p>
                                 </div>
                                 <div class="col-sm-9">
-                                    <input class="text-muted mb-0" type="text" value="${userConnected.city.country.name}">
+                                    <input class="text-muted mb-0" type="text" name="countryName" value="${userConnected.city.country.name}">
                                 </div>
                             </div>
                                 <button class="btn my-blueGreen-bg text-white mt-3 mb-1" type="submit">Valider</button>

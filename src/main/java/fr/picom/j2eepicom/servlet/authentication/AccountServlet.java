@@ -16,8 +16,6 @@ public class AccountServlet extends HttpServlet{
     private UserService userService;
     private String message;
 
-
-
     public void init() {
        this.userService = new UserService();
     }
@@ -34,11 +32,14 @@ public class AccountServlet extends HttpServlet{
         String lastName = req.getParameter("lastName");
         String phoneNumber = req.getParameter("phoneNumber");
         String companyName = req.getParameter("companyName");
+        String postalCode = req.getParameter("postalCode");
         String roadName = req.getParameter("roadName");
+        String cityName = req.getParameter("cityName");
+        String countryName = req.getParameter("countryName");
         HttpSession session = req.getSession();
         User user = (User) session.getAttribute("user");
                 try {
-                    Integer userUpdate = this.userService.update(user.getId(), lastName, firstName, phoneNumber, companyName, roadName);
+                    Integer userUpdate = this.userService.update(user.getId(), lastName, firstName, phoneNumber, companyName, postalCode, roadName, cityName, countryName);
                     req.getSession().setAttribute("user", this.userService.findById(user.getId()));
                 } catch (Exception e) {
                    e.printStackTrace();

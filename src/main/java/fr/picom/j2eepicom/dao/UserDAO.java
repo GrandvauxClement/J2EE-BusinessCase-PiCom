@@ -157,11 +157,9 @@ public class UserDAO extends AbstractGenericDAO<User> {
     }
 
     public Integer update(Long id, String lastName, String firstName, String phoneNumber,
-                       String companyName, String roadName) throws SQLException {
+                       String companyName, String postalCode, String roadName, City city) throws SQLException {
         PreparedStatement ps = null;
         Integer nbUpdated = 0;
-
-
 
         try {
 
@@ -170,15 +168,20 @@ public class UserDAO extends AbstractGenericDAO<User> {
                     "first_name=?," +
                     "phone_number=?," +
                     "company_name=?," +
-                    "road_name=?" + " WHERE id=" +"?";
+                    "postal_code=?," +
+                    "road_name=?," +
+                    "id_city=?" +" WHERE id=" +"?";
 
             ps = this.connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
             ps.setString(1, lastName);
             ps.setString(2, firstName);
             ps.setString(3, phoneNumber);
             ps.setString(4, companyName);
-            ps.setString(5, roadName);
-            ps.setLong(6, id);
+            ps.setString(5, postalCode);
+            ps.setString(6, roadName);
+            ps.setLong(7, city.getId());
+
+            ps.setLong(8, id);
 
 
             ps.executeUpdate();
