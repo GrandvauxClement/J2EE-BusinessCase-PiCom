@@ -11,4 +11,3 @@
 <script src="<c:url value="/assets/script/script.js" />"></script>
 <script src="<c:url value="/assets/script/registerForm.js" />"></script>
 <jsp:include page="/assets/script/scriptBootstrap.jsp"/>
-

@@ -9,6 +9,7 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
     <jsp:include page="/assets/style/styleBootstrap.jsp"/>
+
     <link rel="stylesheet" href="<c:url value="/assets/style/general.css" />" type="text/css">
 
 
