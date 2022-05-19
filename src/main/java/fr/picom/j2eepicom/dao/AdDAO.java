@@ -87,13 +87,18 @@ public class AdDAO extends AbstractGenericDAO<Ad>{
         return ad;
     }
 
-    public List<Ad> findAllAdOfOneUser(Long idUser) throws SQLException{
+    public List<Ad> findAllAdOfOneUser(Long idUser, String orderField, String orderMethod) throws SQLException{
         List<Ad> list = new LinkedList<>();
         PreparedStatement ps = null;
         ResultSet rs = null;
 
         try{
-            ps = this.connection.prepareStatement("SELECT * FROM " + tableName + " WHERE id_user = ?");
+            if (orderField == null && orderMethod == null){
+                ps = this.connection.prepareStatement("SELECT * FROM " + tableName + " WHERE id_user = ?");
+            } else {
+                ps = this.connection.prepareStatement("SELECT * FROM " + tableName + " WHERE id_user = ? ORDER BY " + orderField + " " + orderMethod);
+            }
+
             ps.setLong(1, idUser);
             rs = ps.executeQuery();
             while (rs.next()) {
