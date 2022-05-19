@@ -15,7 +15,7 @@
 <body>
     <jsp:include page="/part/navbar.jsp" />
     <div class="container">
-        <h2 class="my-orange-color text-center my-2">Mes Annonces ${requestScope['javax.servlet.forward.request_uri']}</h2>
+        <h2 class="my-orange-color text-center my-2">Mes Annonces</h2>
         <div class="row justify-content-between my-2">
             <div class="col-12 col-md-5 d-flex justify-content-center mb-2 mb-md-0">
                 <a href="<c:url value="/account/ad/list"/>">
