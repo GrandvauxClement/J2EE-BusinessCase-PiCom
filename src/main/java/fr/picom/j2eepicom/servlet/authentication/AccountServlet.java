@@ -38,13 +38,20 @@ public class AccountServlet extends HttpServlet{
         String countryName = req.getParameter("countryName");
         HttpSession session = req.getSession();
         User user = (User) session.getAttribute("user");
-                try {
-                    Integer userUpdate = this.userService.update(user.getId(), lastName, firstName, phoneNumber, companyName, postalCode, roadName, cityName, countryName);
-                    req.getSession().setAttribute("user", this.userService.findById(user.getId()));
-                } catch (Exception e) {
-                   e.printStackTrace();
-                }
-        resp.sendRedirect("account");
+
+        if (firstName != null && lastName != null && phoneNumber != null && companyName != null && postalCode != null && roadName != null && cityName != null) {
+            try {
+                Integer userUpdate = this.userService.update(user.getId(), lastName, firstName, phoneNumber, companyName, postalCode, roadName, cityName, countryName);
+                req.getSession().setAttribute("user", this.userService.findById(user.getId()));
+                resp.sendRedirect("account");
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+        }else {
+            req.setAttribute("messageError", "Attention tous les champs ne sont pas remplis");
+        }
+        req.getRequestDispatcher("/WEB-INF/account.jsp").forward(req, resp);
     }
 
     public void destroy() {

@@ -10,8 +10,9 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <html>
 <head>
-    <title>Mon Compte</title>
     <jsp:include page="/allStyle.jsp"/>
+    <title>Mon Compte</title>
+
 </head>
 <body>
 <jsp:include page="/part/navbar.jsp"/>
@@ -49,24 +50,26 @@
                 <div class="col-lg-8">
                     <div class="card mb-4">
                         <div class="card-body">
-                            <form action="<c:url value="/account"/>" method="post">
+
+<%--formulaire de modif des donnees--%>
+                            <form class="d-none" id="modify" action="<c:url value="/account"/>" method="post">
                             <div class="row">
                                 <div class="col-sm-3">
                                     <p class="mb-0">Nom</p>
                                 </div>
 
                                 <div class="col-sm-9">
-                                    <input class="text-muted mb-0" type="text" name="lastName" value="${userConnected.lastName}">
+                                    <input class="text-muted mb-0" type="text" name="lastName" value="${userConnected.lastName}" required>
 
                                 </div>
                             </div>
                             <hr>
                             <div class="row">
                                 <div class="col-sm-3">
-                                    <p class="mb-0">Prénom</p>
+                                    <label class="form-label">Prénom</label>
                                 </div>
                                 <div class="col-sm-9">
-                                    <input class="text-muted mb-0" type="text" name="firstName" value="${userConnected.firstName}">
+                                    <input class="text-muted mb-0 form-control" type="text" name="firstName" value="${userConnected.firstName}" required>
                                 </div>
                             </div>
                             <hr>
@@ -84,8 +87,8 @@
                                     <p class="mb-0">Téléphone</p>
                                 </div>
                                 <div class="col-sm-9">
-                                    <input class="text-muted mb-0" type="text" name="phoneIndicative" size="5" value="${userConnected.city.country.phoneIndicative}">
-                                    <input class="text-muted mb-0" type="text" name="phoneNumber" value="${userConnected.phoneNumber}">
+                                    <input class="text-muted mb-0" type="text" name="phoneIndicative" size="5" value="${userConnected.city.country.phoneIndicative}" required>
+                                    <input class="text-muted mb-0" type="text" name="phoneNumber" value="${userConnected.phoneNumber}" required>
                                 </div>
                             </div>
                             <hr>
@@ -94,7 +97,7 @@
                                     <p class="mb-0">Raison sociale</p>
                                 </div>
                                 <div class="col-sm-9">
-                                    <input class="text-muted mb-0" type="text" name="companyName" value="${userConnected.companyName}">
+                                    <input class="text-muted mb-0" type="text" name="companyName" value="${userConnected.companyName}" required>
 
                                 </div>
                             </div>
@@ -104,7 +107,7 @@
                                     <p class="mb-0">Adresse</p>
                                 </div>
                                 <div class="col-sm-9">
-                                    <input class="text-muted mb-0" type="text" name="roadName" value="${userConnected.roadName}">
+                                    <input class="text-muted mb-0" type="text" name="roadName" value="${userConnected.roadName}" required>
                                 </div>
                             </div>
                             <hr>
@@ -113,7 +116,7 @@
                                     <p class="mb-0">Code postal</p>
                                 </div>
                                 <div class="col-sm-9">
-                                    <input class="text-muted mb-0" type="text" name="postalCode" value="${userConnected.postalCode}">
+                                    <input class="text-muted mb-0" type="text" name="postalCode" value="${userConnected.postalCode}" required>
                                 </div>
                             </div>
                             <hr>
@@ -122,7 +125,7 @@
                                     <p class="mb-0">Ville</p>
                                 </div>
                                 <div class="col-sm-9">
-                                    <input class="text-muted mb-0" type="text" name="cityName" value="${userConnected.city.name}">
+                                    <input class="text-muted mb-0" type="text" name="cityName" value="${userConnected.city.name}" required>
                                 </div>
                             </div>
                             <hr>
@@ -131,11 +134,100 @@
                                     <p class="mb-0">Pays</p>
                                 </div>
                                 <div class="col-sm-9">
-                                    <input class="text-muted mb-0" type="text" name="countryName" value="${userConnected.city.country.name}">
+                                    <input class="text-muted mb-0" type="text" name="countryName" value="${userConnected.city.country.name}" required>
                                 </div>
                             </div>
                                 <button class="btn my-blueGreen-bg text-white mt-3 mb-1" type="submit">Valider</button>
                             </form>
+
+
+<%--formulaire de listing des donnees--%>
+                            <div class="" id="listing">
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <p class="mb-0">Nom</p>
+                                    </div>
+
+                                    <div class="col-sm-9">
+                                        <p class="text-muted mb-0" type="text" name="lastName">${userConnected.lastName}</p>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <label class="form-label">Prénom</label>
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <p class="text-muted mb-0" type="text" name="firstName">${userConnected.firstName}</p>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <p class="mb-0">E-mail</p>
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <p class="text-muted mb-0">${userConnected.email}</p>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <p class="mb-0">Téléphone</p>
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <p class="text-muted mb-0" type="text" name="phoneIndicative" size="5">${userConnected.city.country.phoneIndicative}
+                                         ${userConnected.phoneNumber}</p>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <p class="mb-0">Raison sociale</p>
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <p class="text-muted mb-0" type="text" name="companyName">${userConnected.companyName}</p>
+
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <p class="mb-0">Adresse</p>
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <p class="text-muted mb-0" type="text" name="roadName">${userConnected.roadName}</p>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <p class="mb-0">Code postal</p>
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <p class="text-muted mb-0" type="text" name="postalCode">${userConnected.postalCode}</p>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <p class="mb-0">Ville</p>
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <p class="text-muted mb-0" type="text" name="cityName">${userConnected.city.name}</p>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <p class="mb-0">Pays</p>
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <p class="text-muted mb-0" type="text" name="countryName">${userConnected.city.country.name}</p>
+                                    </div>
+                                </div>
+                                <button onclick="modifyData()" id="modifyUser" class="btn my-blueGreen-bg text-white mt-3 mb-1">Modifier</button>
+                            </div>
 
                         </div>
                     </div>
@@ -149,6 +241,7 @@
 </div>
 <jsp:include page="/part/footer.jsp"/>
 <jsp:include page="/part/displayAlertMessage.jsp"/>
-
+<jsp:include page="/allScript.jsp"/>
+<script src="<c:url value="/assets/script/modifyData.js" />"></script>
 </body>
 </html>
