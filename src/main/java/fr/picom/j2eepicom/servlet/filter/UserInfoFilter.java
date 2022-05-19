@@ -1,7 +1,5 @@
 package fr.picom.j2eepicom.servlet.filter;
 
-import fr.picom.j2eepicom.servlet.AdDataServlet;
-
 import javax.servlet.*;
 import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
@@ -13,7 +11,7 @@ import java.util.logging.Logger;
 @WebFilter(urlPatterns = "/*")
 public class UserInfoFilter implements Filter {
 
-    private static Logger logger = Logger.getLogger(AdDataServlet.class.getName());
+    private static Logger logger = Logger.getLogger(UserInfoFilter.class.getName());
 
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {

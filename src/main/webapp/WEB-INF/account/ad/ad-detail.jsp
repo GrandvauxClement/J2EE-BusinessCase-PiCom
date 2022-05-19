@@ -18,24 +18,28 @@
         <h2 class="text-center">Détail Annonce</h2>
         <div class="row mt-2">
             <div class="col-5">
-                <img src="<c:url value='/assets/image/ad/${ad.image}'/>" alt="detailImage">
+                <img src="<c:url value='/assets/image/ad/${ad.image}'/>" class="img-fluid" alt="detailImage">
             </div>
             <div class="col-7">
                 <div>
-                    <span class="text-bold">Titre : </span>
+                    <span class="font-weight-bold">Titre : </span>
                     ${ad.title}
                 </div>
                 <div>
-                    <span class="text-bold">Crée le : </span>
+                    <span class="font-weight-bold">Crée le : </span>
                     ${ad.createdAt}
                 </div>
                 <div>
-                    <span class="text-bold">Début de diffusion : </span>
+                    <span class="font-weight-bold">Début de diffusion : </span>
                     ${ad.startDate}
                 </div>
                 <div>
-                    <span class="text-bold">Fin de diffusion : </span>
+                    <span class="font-weight-bold">Fin de diffusion : </span>
                     ${ad.endDate}
+                </div>
+                <div>
+                    <span class="font-weight-bold">Prix total : </span>
+                    ${ad.totalPriceForAllDay} €
                 </div>
 
             </div>
@@ -44,15 +48,16 @@
         <div class="row">
             <c:forEach items="${ad.areaList}" var="area">
                 <div class="col-6">
-                    <div> zone concerné : ${area.name}</div>
+                    <div> Zone concerné : ${area.name}</div>
                     <div>
-                        Horraire concerné :
+                        <span>Horraire concerné :</span>
                         <ul>
                         <c:forEach items="${area.timeIntervalList}" var="timeInterval">
                             <li>${timeInterval.timeSlot} h</li>
                         </c:forEach>
                         </ul>
                     </div>
+                    <div> Prix : ${area.totalPriceOfAllTimeIntervalSelected} € / jour</div>
                 </div>
             </c:forEach>
         </div>

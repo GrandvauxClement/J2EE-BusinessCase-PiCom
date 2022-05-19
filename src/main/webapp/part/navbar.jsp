@@ -27,7 +27,7 @@
                                 Nouvelle annonce
                             </button>
                         </a>
-                        <a class="nav-link d-flex flex-column align-items-center" href="<c:url value="account/ad/list"/>">
+                        <a class="nav-link d-flex flex-column align-items-center" href="<c:url value="/account/ad/list"/>">
                             <i class="fas fa-folder-open icon-navbar"></i>
                             Mes annonces
                         </a>

@@ -2,7 +2,6 @@ package fr.picom.j2eepicom.servlet.authentication;
 
 import fr.picom.j2eepicom.models.User;
 import fr.picom.j2eepicom.services.UserService;
-import fr.picom.j2eepicom.servlet.AdDataServlet;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -16,7 +15,7 @@ import java.util.logging.Logger;
 @WebServlet(name = "login", value = "/login")
 public class LoginServlet extends HttpServlet {
     private UserService userService;
-    private static Logger logger = Logger.getLogger(AdDataServlet.class.getName());
+    private static Logger logger = Logger.getLogger(LoginServlet.class.getName());
 
     @Override
     public void init() throws ServletException {
