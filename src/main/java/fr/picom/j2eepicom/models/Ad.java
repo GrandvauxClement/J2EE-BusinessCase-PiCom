@@ -1,16 +1,11 @@
 package fr.picom.j2eepicom.models;
 
 import fr.picom.j2eepicom.models.db.TableName;
-
-import java.text.DecimalFormat;
+import static fr.picom.j2eepicom.utils.RoundNumber.roundDouble;
 import java.time.LocalDate;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 
 public class Ad extends AbstractEntity{
-
-    private static final DecimalFormat df = new DecimalFormat("0.00");
 
     private Long id;
 
@@ -93,10 +88,6 @@ public class Ad extends AbstractEntity{
     }
 
     public LocalDate getEndDate() {
-        /*Calendar c = Calendar.getInstance();
-        c.setTime(startDate);
-        c.add(Calendar.DATE, numDaysOfDiffusion);
-        return c.getTime();*/
         return startDate.plusDays(numDaysOfDiffusion);
     }
 
@@ -124,17 +115,16 @@ public class Ad extends AbstractEntity{
         this.areaList = areaList;
     }
 
-    public Double getTotalPriceOfAdForOneDay(){
-        Double stockValue = 0D;
+    public String getTotalPriceOfAdForOneDay(){
+        double stockValue = 0D;
         for (Area area : areaList){
-            stockValue += area.getTotalPriceOfAllTimeIntervalSelected();
+            stockValue += Double.parseDouble(area.getTotalPriceOfAllTimeIntervalSelected());
         }
-
-        return stockValue;
+        return roundDouble(stockValue);
     }
 
     public String getTotalPriceForAllDay(){
-        Double stock = getTotalPriceOfAdForOneDay() * numDaysOfDiffusion;
-        return df.format(stock);
+        double stock = Double.parseDouble(getTotalPriceOfAdForOneDay()) * numDaysOfDiffusion;
+        return roundDouble(stock);
     }
 }

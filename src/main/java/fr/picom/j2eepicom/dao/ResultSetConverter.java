@@ -64,7 +64,7 @@ public class ResultSetConverter {
     public static TimeInterval convertToTimeInterval(ResultSet resultSet) throws SQLException {
         Long id = resultSet.getLong("id");
         Double timeSlot = resultSet.getDouble("time_slot");
-        Float coefMulti = resultSet.getFloat("coef_multi");
+        Double coefMulti = resultSet.getDouble("coef_multi");
 
         return new TimeInterval(id, timeSlot, coefMulti);
     }

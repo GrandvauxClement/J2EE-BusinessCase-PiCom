@@ -1,6 +1,7 @@
 package fr.picom.j2eepicom.models;
 
 import fr.picom.j2eepicom.models.db.TableName;
+import static fr.picom.j2eepicom.utils.RoundNumber.roundDouble;
 
 import java.util.List;
 
@@ -61,16 +62,16 @@ public class Area extends AbstractEntity{
         this.timeIntervalList = timeIntervalList;
     }
 
-    public Float getPriceOfAdByTimeInterval(TimeInterval timeInterval){
+    public Double getPriceOfAdByTimeInterval(TimeInterval timeInterval){
         return price * timeInterval.getCoefMulti();
     }
 
-    public Float getTotalPriceOfAllTimeIntervalSelected(){
-        Float stockValue = 0F;
+    public String getTotalPriceOfAllTimeIntervalSelected(){
+        Double stockValue = 0D;
         for (TimeInterval timeInterval : timeIntervalList){
             stockValue += getPriceOfAdByTimeInterval(timeInterval);
         }
 
-        return stockValue;
+        return roundDouble(stockValue);
     }
 }
