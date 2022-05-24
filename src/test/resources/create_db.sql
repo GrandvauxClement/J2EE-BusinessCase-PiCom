@@ -58,7 +58,7 @@ CREATE TABLE ad
 CREATE TABLE time_interval
 (
     id INT PRIMARY KEY AUTO_INCREMENT,
-    time_slot DOUBLE,
+    time_slot VARCHAR(5) ,
     nbre_ad SMALLINT NULL,
     coef_multi FLOAT
 );
@@ -118,19 +118,19 @@ VALUES ( 'admin', 'admin', 'admin@admin.com', '$2a$10$mijxhHWPRgXi.eMDB..TgO7S.r
        ('Jack', 'Seller','contact@hb.com', '$2a$10$mijxhHWPRgXi.eMDB..TgO7S.rwelrs5x6CyuqHuUJFmyqGhOK.8S', '385685894', true, '94258436525325', 'hb', 'rue de la formation', '63000', 3, 1 );
 
 INSERT INTO time_interval(time_slot, nbre_ad, coef_multi) VALUES
-   (6.7, NULL, 1.8),
-   (7.8, NULL, 2.4),
-   (8.9, NULL, 2.5),
-   (9.10, NULL, 1.8),
-   (11.12, NULL, 1.2),
-   (12.13, NULL, 2.5),
-   (13.14, NULL, 2.4),
-   (14.15, NULL, 1.4),
-   (15.16, NULL, 1.1),
-   (16.17, NULL, 1.4),
-   (17.18, NULL, 1.7),
-   (18.19, NULL, 1.8),
-   (19.20, NULL, 1.9);
+   ('6-7', NULL, 1.8),
+   ('7-8', NULL, 2.4),
+   ('8-9', NULL, 2.5),
+   ('9-10', NULL, 1.8),
+   ('11-12', NULL, 1.2),
+   ('12-13', NULL, 2.5),
+   ('13-14', NULL, 2.4),
+   ('14-15', NULL, 1.4),
+   ('15-16', NULL, 1.1),
+   ('16-17', NULL, 1.4),
+   ('17-18', NULL, 1.7),
+   ('18-19', NULL, 1.8),
+   ('19-20', NULL, 1.9);
 
 INSERT INTO area(name, price) VALUES
   ('Centre-ville', 5.50 ),

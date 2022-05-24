@@ -8,7 +8,7 @@ public class TimeInterval extends AbstractEntity{
 
     private Long id;
 
-    private Double timeSlot;
+    private String timeSlot;
 
     private Integer nbreAd;
 
@@ -16,7 +16,7 @@ public class TimeInterval extends AbstractEntity{
 
     private List<Ad> adList;
 
-    public TimeInterval(Long id, Double timeSlot, Integer nbreAd, Double coefMulti, List<Ad> adList) {
+    public TimeInterval(Long id, String timeSlot, Integer nbreAd, Double coefMulti, List<Ad> adList) {
         super(TableName.TIME_INTERVAL);
         this.id = id;
         this.timeSlot = timeSlot;
@@ -25,7 +25,7 @@ public class TimeInterval extends AbstractEntity{
         this.adList = adList;
     }
 
-    public TimeInterval(Long id, Double timeSlot, Double coefMulti) {
+    public TimeInterval(Long id, String timeSlot, Double coefMulti) {
         super(TableName.TIME_INTERVAL);
         this.id = id;
         this.timeSlot = timeSlot;
@@ -40,11 +40,11 @@ public class TimeInterval extends AbstractEntity{
         this.id = id;
     }
 
-    public Double getTimeSlot() {
+    public String getTimeSlot() {
         return timeSlot;
     }
 
-    public void setTimeSlot(Double timeSlot) {
+    public void setTimeSlot(String timeSlot) {
         this.timeSlot = timeSlot;
     }
 
