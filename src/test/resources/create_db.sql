@@ -133,9 +133,9 @@ INSERT INTO time_interval(time_slot, nbre_ad, coef_multi) VALUES
    (19.20, NULL, 1.9);
 
 INSERT INTO area(name, price) VALUES
-  ('centre-ville', 45.90 ),
-  ('gare', 42.30),
-  ('quartier chaud', 10.10);
+  ('Centre-ville', 45.90 ),
+  ('Gare', 42.30),
+  ('Quartier chaud', 10.10);
 
 INSERT INTO stop(name, latitude, longitude, id_area, address_ip) VALUES
   ( 'centre-ville-1', 45.6584528, 43.98478557, 1, '197.25.65.25' ),

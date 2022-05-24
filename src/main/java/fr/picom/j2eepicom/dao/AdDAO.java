@@ -12,6 +12,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
@@ -22,7 +23,7 @@ public class AdDAO extends AbstractGenericDAO<Ad>{
         super(TableName.AD);
     }
 
-    public Ad createAd(String title, String image, String text, Date startDate, int numDaysOfDiffusion, Long userId,
+    public Ad createAd(String title, String image, String text, LocalDate startDate, int numDaysOfDiffusion, Long userId,
                        List<Area> areaList) throws SQLException {
 
         PreparedStatement ps = null;
@@ -33,7 +34,7 @@ public class AdDAO extends AbstractGenericDAO<Ad>{
             String query = "INSERT INTO " + tableName + " (title, image, text, created_at, start_date, num_days_of_diffusion," +
                     "id_user) " +
                     "VALUES(?, ?, ?, ?, ?, ?, ?)";
-            Date createdAt = new Date();
+            LocalDate createdAt = LocalDate.now();
             ps = this.connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
             ps.setString(1, title);
             ps.setString(2, image);

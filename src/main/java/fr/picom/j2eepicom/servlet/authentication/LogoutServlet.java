@@ -1,7 +1,5 @@
 package fr.picom.j2eepicom.servlet.authentication;
 
-import fr.picom.j2eepicom.services.UserService;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;

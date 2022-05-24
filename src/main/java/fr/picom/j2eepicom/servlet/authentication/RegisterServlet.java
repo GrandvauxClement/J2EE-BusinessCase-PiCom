@@ -1,13 +1,10 @@
 package fr.picom.j2eepicom.servlet.authentication;
 
 import fr.picom.j2eepicom.exceptions.DbUniqueFieldThisValueExist;
-import fr.picom.j2eepicom.models.Ad;
 import fr.picom.j2eepicom.models.User;
-import fr.picom.j2eepicom.services.AdService;
 import fr.picom.j2eepicom.services.UserService;
 
 import java.io.*;
-import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.regex.Pattern;
@@ -84,7 +81,7 @@ public class RegisterServlet extends HttpServlet {
                     email != null && email.length() > 0){
                 try {
                     User userCreate = this.userService.register(lastName, firstName, email, password, phoneNumber, numSiret, companyName,
-                            "rue du test", "39210", "Le Vernois", "France");
+                            adressName, postalCode, city, "France");
 
                     //Connect user to app after register done
                     req.getSession().setAttribute("connected", true);

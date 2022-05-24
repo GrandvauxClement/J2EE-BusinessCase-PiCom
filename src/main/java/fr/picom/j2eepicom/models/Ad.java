@@ -10,6 +10,8 @@ import java.util.List;
 
 public class Ad extends AbstractEntity{
 
+    private static final DecimalFormat df = new DecimalFormat("0.00");
+
     private Long id;
 
     private String title;
@@ -18,9 +20,9 @@ public class Ad extends AbstractEntity{
 
     private String text;
 
-    private Date createdAt;
+    private LocalDate createdAt;
 
-    private Date startDate;
+    private LocalDate startDate;
 
     private Integer numDaysOfDiffusion;
 
@@ -28,7 +30,7 @@ public class Ad extends AbstractEntity{
 
     private List<Area> areaList;
 
-    public Ad(Long id, String title, String image, String text, Date createdAt, Date startDate, Integer numDaysOfDiffusion, User user,
+    public Ad(Long id, String title, String image, String text, LocalDate createdAt, LocalDate startDate, Integer numDaysOfDiffusion, User user,
               List<Area> areaList) {
         super(TableName.AD);
         this.id = id;
@@ -74,27 +76,28 @@ public class Ad extends AbstractEntity{
         this.text = text;
     }
 
-    public Date getCreatedAt() {
+    public LocalDate getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(Date createdAt) {
+    public void setCreatedAt(LocalDate createdAt) {
         this.createdAt = createdAt;
     }
 
-    public Date getStartDate() {
+    public LocalDate getStartDate() {
         return startDate;
     }
 
-    public void setStartDate(Date startDate) {
+    public void setStartDate(LocalDate startDate) {
         this.startDate = startDate;
     }
 
-    public Date getEndDate() {
-        Calendar c = Calendar.getInstance();
+    public LocalDate getEndDate() {
+        /*Calendar c = Calendar.getInstance();
         c.setTime(startDate);
         c.add(Calendar.DATE, numDaysOfDiffusion);
-        return c.getTime();
+        return c.getTime();*/
+        return startDate.plusDays(numDaysOfDiffusion);
     }
 
     public Integer getNumDaysOfDiffusion() {
@@ -121,8 +124,8 @@ public class Ad extends AbstractEntity{
         this.areaList = areaList;
     }
 
-    public Float getTotalPriceOfAdForOneDay(){
-        Float stockValue = 0F;
+    public Double getTotalPriceOfAdForOneDay(){
+        Double stockValue = 0D;
         for (Area area : areaList){
             stockValue += area.getTotalPriceOfAllTimeIntervalSelected();
         }
@@ -130,8 +133,8 @@ public class Ad extends AbstractEntity{
         return stockValue;
     }
 
-    public Float getTotalPriceForAllDay(){
-        DecimalFormat df = new DecimalFormat("0.00");
-        return getTotalPriceOfAdForOneDay() * numDaysOfDiffusion;
+    public String getTotalPriceForAllDay(){
+        Double stock = getTotalPriceOfAdForOneDay() * numDaysOfDiffusion;
+        return df.format(stock);
     }
 }

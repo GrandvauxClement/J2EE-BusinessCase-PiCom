@@ -8,6 +8,7 @@ import fr.picom.j2eepicom.models.*;
 import org.junit.jupiter.api.*;
 
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -57,7 +58,7 @@ public class AdServiceTest {
 
         User user = userService.findById(2L);
 
-        Ad ad = this.adService.create("Anoonce de test","monTest.png", "Lorem ipsum Test d ajout ", new Date(),
+        Ad ad = this.adService.create("Anoonce de test","monTest.png", "Lorem ipsum Test d ajout ", LocalDate.now(),
                 15, user.getId(),  areaList);
 
 

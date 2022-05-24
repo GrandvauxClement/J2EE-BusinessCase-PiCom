@@ -5,6 +5,7 @@ import fr.picom.j2eepicom.models.Ad;
 import fr.picom.j2eepicom.models.Area;
 
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -17,7 +18,7 @@ public class AdService {
         this.adDAO = new AdDAO();
     }
 
-    public Ad create(String title,String image, String text, Date startDate, int numDaysOfDiffusion, Long userId,
+    public Ad create(String title,String image, String text, LocalDate startDate, int numDaysOfDiffusion, Long userId,
                      List<Area> areaList) {
         try {
            return this.adDAO.createAd(title, image,text, startDate, numDaysOfDiffusion, userId, areaList);
@@ -54,7 +55,7 @@ public class AdService {
 
     public List<Ad> getListAdByActiveOrIncative(List<Ad> adList, boolean isActive){
         List<Ad> adListActive = new ArrayList<>();
-        Date dateNow = new Date();
+        LocalDate dateNow = LocalDate.now();
         for (Ad ad : adList){
             if (ad.getStartDate().compareTo(dateNow) <= 0 && ad.getEndDate().compareTo(dateNow) > 0){
                 if (isActive){

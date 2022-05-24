@@ -6,8 +6,12 @@ import fr.picom.j2eepicom.models.db.TableName;
 import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import fr.picom.j2eepicom.utils.DateManagement;
+
+import static fr.picom.j2eepicom.utils.DateManagement.convertUtilDateToLocalDate;
 
 public class ResultSetConverter {
 
@@ -102,8 +106,8 @@ public class ResultSetConverter {
         String title = resultSet.getString("title");
         String image = resultSet.getString("image");
         String text = resultSet.getString("text");
-        Date createdAt = resultSet.getDate("created_at");
-        Date startDate = resultSet.getDate("start_date");
+        LocalDate createdAt = convertUtilDateToLocalDate(resultSet.getDate("created_at"));
+        LocalDate startDate = convertUtilDateToLocalDate(resultSet.getDate("start_date"));
         Integer numDaysOfDiffusion = resultSet.getInt("num_days_of_diffusion");
 
         UserDAO userDAO = new UserDAO();
