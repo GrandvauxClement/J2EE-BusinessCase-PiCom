@@ -35,7 +35,7 @@ button.my-blueGreen-bg:hover{
     color: #FF9F1C!important;
 }
 .ad-list-item i{
-    font-size: 20px;
+    font-size: 25px;
 }
 .ad-list-action{
     color: grey;
@@ -44,9 +44,7 @@ button.my-blueGreen-bg:hover{
     cursor: pointer;
     color: #2EC4B6;
 }
-.ad-list-action-pause{
-    font-size: 30px!important;
-}
+
 .ad-list-action-pause:hover{
     color: #FF9F1C;
     cursor: pointer;

@@ -68,5 +68,12 @@ public class AdService {
         return adListActive;
     }
 
+    public boolean deleteById(Long id){
+        try {
+            return this.adDAO.deleteById(id);
+        }catch (SQLException e){
+            return false;
+        }
+    }
 
 }

@@ -110,4 +110,44 @@ public class AdDAO extends AbstractGenericDAO<Ad>{
         }
         return list;
     }
+
+    public boolean deleteById(Long id) throws SQLException {
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        boolean response = false;
+        try {
+
+            PreparedStatement psTest = this.connection.prepareStatement("SELECT * FROM " + tableName +" WHERE id= ?" );
+            psTest.setLong(1, id);
+            rs = psTest.executeQuery();
+            if (rs.next()){
+                PreparedStatement psADArea = this.connection.prepareStatement( "SELECT id FROM ad_area WHERE id_ad= ?");
+                psADArea.setLong(1, id);
+                ResultSet rsAdArea = psADArea.executeQuery();
+                while (rsAdArea.next()){
+                   /* PreparedStatement psAreaTimeInterval = this.connection.prepareStatement( "SELECT id FROM ad_time_interval WHERE id_ad_area= ?");
+                    psAreaTimeInterval.setLong(1, id);
+                    ResultSet rsAreaTimeInterval = psAreaTimeInterval.executeQuery();*/
+
+                    PreparedStatement deleteAreaTimeInterval = this.connection.prepareStatement("DELETE FROM ad_time_interval WHERE id_ad_area=?");
+                    deleteAreaTimeInterval.setLong(1, rsAdArea.getLong("id"));
+                    deleteAreaTimeInterval.executeUpdate();
+
+                }
+                PreparedStatement deleteAreaTimeInterval = this.connection.prepareStatement("DELETE FROM ad_area WHERE id_ad=?");
+                deleteAreaTimeInterval.setLong(1, id);
+                deleteAreaTimeInterval.executeUpdate();
+                String query = "DELETE FROM " + tableName + " WHERE id=?";
+
+                ps = connection.prepareStatement(query);
+                ps.setLong(1, id);
+                ps.executeUpdate();
+                response = true;
+            }
+
+        } finally {
+            DBConnect.closeAll(ps, rs);
+        }
+        return response;
+    }
 }

@@ -51,7 +51,11 @@
                 <c:forEach items="${adList}" var="ad">
                     <div class="row my-3 ad-list-item">
                         <div class="col-md-5 col-12">
-                            <img src="<c:url value='/assets/image/ad/${ad.image}'/>" class="card-img-top" alt="...">
+                            <img
+                                 src="<c:url value='/assets/image/ad/${ad.image}'/>"
+                                 class="card-img-top" alt="..."
+                                 style="height: 200px"
+                            >
                         </div>
                         <div class="col-md-7 col-12 d-flex flex-column justify-content-between">
                             <h5 class="text-center"> <c:out value="${ad.title}"/></h5>
@@ -67,25 +71,55 @@
                                 <div class="col-2">
                                     <div class="d-flex align-items-center my-1">
                                         <i class="fas fa-map-marker-alt my-orange-color"></i>
-                                        <div class="ms-2"> 3</div>
+                                        <div class="ms-2"> ${ad.areaList.size()}</div>
                                     </div>
 
                                 </div>
                                 <div class="col-3">
                                     <div class="d-flex align-items-center">
-                                        <a class="ad-list-action" href="<c:url value="/account/ad/${ad.id}"/>">
-                                            <i class="fas fa-pen me-2 ad-list-action-edit"></i>
+                                        <a class="ad-list-action ad-list-action-pause" href="<c:url value="/account/ad/${ad.id}"/>">
+                                            <i class="fas fa-eye me-2"></i>
                                         </a>
-                                        <i class="fas fa-pause me-2 ad-list-action-pause"></i>
-                                        <i class="fas fa-trash-alt me-2 ad-list-action-delete"></i>
+                                        <a class="ad-list-action ad-list-action-edit" href="<c:url value="/account/ad/${ad.id}"/>">
+                                            <i class="fas fa-pen me-2 "></i>
+                                        </a>
+                                        <a class="ad-list-action ad-list-action-delete" data-mdb-toggle="modal" data-mdb-target="#deleteAdModal">
+                                            <i class="fas fa-trash-alt me-2"></i>
+                                        </a>
                                     </div>
                                 </div>
+
+
                             </div>
 
                         </div>
 
                     </div>
                     <hr/>
+
+                    <!-- Modal for delete action -->
+                    <div class="modal fade" id="deleteAdModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header bg-danger">
+                                    <h5 class="modal-title text-light" id="exampleModalLabel">Attention !!</h5>
+                                    <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <p>
+                                        Vous vous apprêtez à supprimer l'annonce ${ad.title} <br />
+                                        Êtes-vous sur de vouloir la supprimer ?
+                                    </p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-dark" data-mdb-dismiss="modal">Annuler</button>
+                                    <a href="<c:url value="/account/ad/delete/${ad.id}"/>">
+                                        <button type="button" class="btn btn-danger">Supprimer</button>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </c:forEach>
             </div>
         </div>

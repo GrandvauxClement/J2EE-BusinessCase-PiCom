@@ -41,7 +41,7 @@ public class AdServlet extends HttpServlet {
             String checkIfDisplayAdActive = req.getParameter("adActive");
             String getParamOrder = req.getParameter("order");
             List<Ad> allAdList;
-            logger.log(Level.INFO, "Mon USer !!!  : " + user);
+
             if (getParamOrder != null){
 
                 if (getParamOrder.equalsIgnoreCase("startDateDesc")){
@@ -77,7 +77,14 @@ public class AdServlet extends HttpServlet {
             }
 
             req.setAttribute("adList", adList);
-        } else {
+        } else if (action.equals(UsersServletPage.DELETE.getName())){
+            Long id = Long.valueOf(uri.split("/")[uri.split("/").length - 1]);
+            logger.log(Level.INFO, "Mon id to delete !!!  : " + id);
+            boolean response = adService.deleteById(id);
+            logger.log(Level.INFO, "boolean return !!!  : " + response);
+            resp.sendRedirect("/account/ad/list");
+        }
+        else {
             try {
                 Long id = Long.valueOf(action);
                 req.setAttribute("ad", adService.findById(id));
@@ -139,7 +146,8 @@ enum UsersServletPage {
     LIST("list"),
     CREATE("create"),
     UPDATE("update"),
-    DETAIL("detail");
+    DETAIL("detail"),
+    DELETE("delete");
 
     private String name;
 
