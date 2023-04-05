@@ -44,7 +44,6 @@ public class UserServiceTest {
                 "9 rue de la gagne", "27000", "Toulouse", "France");
 
         users = userService.findAll();
-        City city = cityService.findByName("Toulouse");
         assertThat(users, is(notNullValue()));
         //Check if he has user role
         Assertions.assertEquals("User", userCreate.getRole().getName());

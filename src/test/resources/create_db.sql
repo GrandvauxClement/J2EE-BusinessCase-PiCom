@@ -41,7 +41,6 @@ CREATE TABLE user
     FOREIGN KEY (id_city) REFERENCES city(id),
     FOREIGN KEY (id_role) REFERENCES roles(id)
 );
-
 CREATE TABLE ad
 (
     id INT PRIMARY KEY AUTO_INCREMENT,
@@ -54,7 +53,6 @@ CREATE TABLE ad
     id_user INT,
     FOREIGN KEY (id_user) REFERENCES user(id)
 );
-
 CREATE TABLE time_interval
 (
     id INT PRIMARY KEY AUTO_INCREMENT,
@@ -62,14 +60,12 @@ CREATE TABLE time_interval
     nbre_ad SMALLINT NULL,
     coef_multi FLOAT
 );
-
 CREATE TABLE area
 (
     id INT PRIMARY KEY AUTO_INCREMENT,
     name VARCHAR(50),
     price FLOAT
 );
-
 CREATE TABLE ad_area
 (
     id INT PRIMARY KEY AUTO_INCREMENT,
@@ -78,7 +74,6 @@ CREATE TABLE ad_area
     FOREIGN KEY (id_ad) REFERENCES ad(id),
     FOREIGN KEY (id_area) REFERENCES area(id)
 );
-
 CREATE TABLE ad_time_interval
 (
     id INT PRIMARY KEY AUTO_INCREMENT,
@@ -87,8 +82,6 @@ CREATE TABLE ad_time_interval
     FOREIGN KEY (id_ad_area) REFERENCES ad_area(id),
     FOREIGN KEY (id_time_interval) REFERENCES time_interval(id)
 );
-
-
 CREATE TABLE stop
 (
     id INT PRIMARY KEY AUTO_INCREMENT,
@@ -113,9 +106,12 @@ INSERT INTO roles (name) VALUES
    ( 'Admin' ),
    ('User');
 
-INSERT INTO user (last_name, first_name, email, password, phone_number, is_verified, num_siret, company_name, road_name, postal_code, id_city, id_role)
-VALUES ( 'admin', 'admin', 'admin@admin.com', '$2a$10$mijxhHWPRgXi.eMDB..TgO7S.rwelrs5x6CyuqHuUJFmyqGhOK.8S', '66666666', true, '14242535652521', 'admin', 'rue admin', '69000', 1, 1),
-       ('Jack', 'Seller','contact@hb.com', '$2a$10$mijxhHWPRgXi.eMDB..TgO7S.rwelrs5x6CyuqHuUJFmyqGhOK.8S', '385685894', true, '94258436525325', 'hb', 'rue de la formation', '63000', 3, 1 );
+INSERT INTO user (last_name, first_name, email, password, phone_number, is_verified, num_siret, company_name, road_name,
+                  postal_code, id_city, id_role)
+VALUES ( 'admin', 'admin', 'admin@admin.com', '$2a$10$mijxhHWPRgXi.eMDB..TgO7S.rwelrs5x6CyuqHuUJFmyqGhOK.8S', '66666666',
+        true, '14242535652521', 'admin', 'rue admin', '69000', 1, 1),
+       ('Jack', 'Seller','contact@hb.com', '$2a$10$mijxhHWPRgXi.eMDB..TgO7S.rwelrs5x6CyuqHuUJFmyqGhOK.8S', '385685894',
+        true, '94258436525325', 'hb', 'rue de la formation', '63000', 3, 1 );
 
 INSERT INTO time_interval(time_slot, nbre_ad, coef_multi) VALUES
    ('6-7', NULL, 1.8),

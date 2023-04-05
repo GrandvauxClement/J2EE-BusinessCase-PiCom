@@ -79,7 +79,7 @@ public class AdServiceTest {
     @DisplayName("Test find all ad")
     public void findAll() {
         List<Ad> adList = adService.findAll();
-        Assertions.assertEquals("image.png", adList.get(0).getImage());
+        Assertions.assertEquals("discover-jungle.jpg", adList.get(0).getImage());
     }
 
     @Test

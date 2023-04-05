@@ -9,7 +9,6 @@ public abstract class AbstractEntity {
     public AbstractEntity(TableName tableName) {
         this.tableName = tableName;
     }
-
     public TableName getTableName() {
         return tableName;
     }
